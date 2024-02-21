@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Remission and Obesity Prevention</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="icon" href="./images/image.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <script src="./js/main.js"></script>
+
+    <style>
+        /* Add your custom styles here */
+        .popup {
+            position: fixed;
+            bottom: 10px; /* Adjust the distance from the bottom */
+            right: 10px; /* Adjust the distance from the right */
+            background-color: #fff;
+            padding: 15px;
+            border: 2px solid black;
+            border-radius: 20px;
+            z-index: 9999;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        .popup h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .popup a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #034183;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .popup a:hover {
+            background-color: #0056b3;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #034183;
+        }
+
+
+         
+
+       /* Regular styles for the navigation */
+       .navbar {
+            display: none; /* Initially hide the navigation */
+        }
+
+        /* Media query for phones (screen width less than 768px) */
+        @media only screen and (max-width: 767px) {
+            /* Show hamburger icon and hide navigation */
+            .navbar {
+                display: none;
+            }
+            .hamburger-icon {
+                display: block; /* Show hamburger icon */
+            }
+        }
+
+        /* Media query for laptops (screen width greater than or equal to 768px) */
+        @media only screen and (min-width: 768px) {
+            /* Show the navigation on laptops */
+            .navbar {
+                display: block;
+            }
+            .hamburger-icon {
+                display: none; /* Hide hamburger icon */
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #034183; color: #ffffff;">
+        <div class="logo-container" style="display: flex; align-items: center;">
+            <a href="#" class="logo" style="max-width: 180px; height: auto; margin-right: 10px;"><img src="./images/DropLogo.jpeg" alt="DROP Logo"></a>
+            <div class="header-text" style="font-family: 'Arial', sans-serif;">
+              
+            </div>
+        </div>
+        <div class="header-right" style="display: flex; align-items: center;">
+            <a href="donate.html" class="donate-link" style="color: #ffffff; text-decoration: none; margin-right: 20px; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold;">
+                <span>Donate</span>
+                <i class="fas fa-heart" style="font-size: 24px;"></i>
+            </a>
+            <div class="hamburger-icon" style="display: none;">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul style="list-style-type: none; margin: 0; padding: 0;">
+                <li><a href="#home" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login/Sign Up</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Programmes</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Assessment Tools</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Research Centre</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
+                <li><a href="donate.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate</a></li>
+                <li><a href="careers.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
+                <li><a href="#contact" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
+                <li><a href="#faq" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+  
+
+  <div class="pt-5 pb-5" style="background-color: #f2f2f2;">
+    <div class="container">
+         
+
+      <div class="row">
+        <div class="section-head col-sm-12" id="service">
+          <h1>Support DROP's Mission: Donate Today!</h1>
+          <p style="text-transform: none;">Welcome to DROP's donation page, where you can join us in our mission to combat diabetes, promote nutrition, and empower communities. Your generosity plays a crucial role in sustaining and expanding our programs that target Adolescent Boys and Young Men (ABYM) and Adolescent Girls and Young Women (AGYW). By donating to DROP, you're investing in initiatives that nurture healthy lifestyles, educate individuals about the importance of physical activity and nutrition, and create lasting positive change in communities. Every contribution, no matter the size, helps us continue our vital work. Explore the options below to learn more about how you can make a difference through your support of DROP's initiatives. Thank you for considering a donation to support our cause. Together, we can build healthier, more resilient communities for generations to come.</p>
+        </div>
+        <div class="col-lg-4 col-sm-6" >
+            <div class="item"> 
+                <span class="icon feature_box_col_one">
+                    <img src="./images/imagesDon.png" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+                <h6 style="font-weight: bold; color: #034183; font-weight: bold;">Empower Healthier Futures with Your Donation</h6>
+                <p style="text-transform: none;">As a dedicated health initiative, our mission is to combat diabetes and obesity while promoting active, healthy lifestyles among adolescents and young adults. Through our impactful programs and community-driven approach, we've been able to make a tangible difference in the lives of individuals and communities. By donating to DROP, you become a crucial part of this journey towards better health and well-being. Your contribution enables us to expand our reach, develop innovative programs, and empower more individuals to embrace healthier habits. Together, we can create a healthier future for generations to come. Join us in making a difference today!</p>
+            </div>
+        </div>
+        
+        
+ <!-- Donation Section -->
+ <div class="col-lg-4 col-sm-6">
+    <div class="item">
+        <span class="icon feature_box_col_two"></span>
+        <span class="icon feature_box_col_two" style="color: #034183;font-size: 25px;font-weight: bold; background-color: #f2f2f2;">Secure Donation</span>
+        
+        <!-- Donation Form -->
+        <div id="donationForm">
+            <!-- Buttons for one-time and monthly donations -->
+            <div style="display: flex; justify-content: space-between;">
+                <button style="width: 120px; padding: 10px; font-size: 16px; border-radius: 10px; font-weight: bold; color: #034183;" onclick="selectAmount(50000)">Give Once</button>
+                <button style="width: 120px; padding: 10px; font-size: 16px; border-radius: 10px; font-weight: bold; color: #034183;" onclick="selectAmount(25000)">Give Monthly</button>
+            </div>
+            
+            <!-- Buttons for predefined donation amounts -->
+            <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                <div>
+                    <button style="width: 80px; padding: 5px; font-size: 14px; border-radius: 10px;" onclick="selectAmount(50000)">50K</button>
+                    <button style="width: 80px; padding: 5px; font-size: 14px; border-radius: 10px;" onclick="selectAmount(25000)">25K</button>
+                    <button style="width: 80px; padding: 5px; font-size: 14px; border-radius: 10px;" onclick="selectAmount(12000)">12K</button>
+                </div>
+                <div>
+                    <button style="width: 80px; padding: 5px; font-size: 14px; border-radius: 10px;" onclick="selectAmount(7000)">7K</button>
+                    <button style="width: 80px; padding: 5px; font-size: 14px; border-radius: 10px;" onclick="selectAmount(3500)">3.5K</button>
+                    <button style="width: 80px; padding: 5px; font-size: 14px; border-radius: 10px;" onclick="selectAmount(2500)">2.5K</button>
+                </div>
+            </div>
+            
+            <!-- Input field for manual amount -->
+            <input type="text" id="manualAmount" style="margin-top: 10px; border-radius: 4px; font-size: 12px; border-color: #034183; color: #034183;" placeholder="Enter Amount" oninput="validateInput(this)">
+            <select id="currency" style="margin-top: 5px; font-size: 8px; border-color: #034183;">
+                <option value="USD">KES</option>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <!-- Add more currency options as needed -->
+            </select>
+            
+            <!-- Donate button to transition to payment methods -->
+            <button style="margin-top: 10px; padding: 10px 20px; font-size: 16px; border-radius: 10PX; background-color: #034183;color: white;border-color: #034183; font-weight: bolder;" onclick="showPaymentMethods()">Donate</button>
+        </div>
+        
+        <!-- Payment Methods Section (Initially Hidden) -->
+        <div id="paymentMethods" style="display: none;">
+            <!-- Add payment methods content here -->
+            <!-- For example: -->
+            <h2 style="color: #034183; font-weight: bolder; font-size: large;">Select Payment Method</h2>
+            <div style="text-align: center;">
+                <button style="display: block; width: 200px; height: 50px; margin: 0 auto 10px auto; border-radius: 8px; text-align: left; padding-left: 10px; font-size: 16px; background-color: skyblue; color: white; border: none; cursor: pointer; font-weight: bold;">
+                    <img src="https://img.icons8.com/color/48/000000/paypal.png" style="width: 20px; height: 20px; margin-right: 10px;"/>
+                    PayPal
+                </button>
+            
+                <button style="display: block; width: 200px; height: 50px; margin: 0 auto 10px auto; border-radius: 8px; text-align: left; padding-left: 10px; font-size: 16px; background-color: skyblue; color: white; border: none; cursor: pointer; font-weight: bold;">
+                    <img src="https://img.icons8.com/windows/32/000000/bank-card-back-side.png" style="width: 20px; height: 20px; margin-right: 10px;"/>
+                    Credit Card
+                </button>
+            
+                <button style="display: block; width: 200px; height: 50px; margin: 0 auto; border-radius: 8px; text-align: left; padding-left: 10px; font-size: 16px; background-color: skyblue; color: white; border: none; cursor: pointer; font-weight: bold;">
+                    <img src="https://img.icons8.com/color/32/000000/bank-euro.png" style="width: 20px; height: 20px; margin-right: 10px;"/>
+                    Epay
+                </button>
+            </div>
+            
+           <!-- Back Icon in a Box -->
+            <div style="text-align: center; margin-top: 20px;">
+           <div style="display: inline-block; background-color: #f2f2f2; padding: 10px; border-radius: 5px; border-color: #034183; ">
+            <button style="background: none; border: none; cursor: pointer;" onclick="goBackToDonationForm()">
+               <!-- You can replace the text with an icon -->
+              <span style="font-size: 40px; font-weight: bolder; color: #034183;">&#8592;</span>
+               <!-- Here, &#8592; is the HTML entity code for a left arrow -->
+               </button>
+             </div>
+          </div>
+
+        </div>
+
+        
+    </div>
+</div>
+
+<!-- Your JavaScript Code -->
+<script>
+    // Function to show payment methods and hide donation form
+    function showPaymentMethods() {
+        document.getElementById('donationForm').style.display = 'none';
+        document.getElementById('paymentMethods').style.display = 'block';
+    }
+
+    // Function to go back to the donation form
+    function goBackToDonationForm() {
+        document.getElementById('donationForm').style.display = 'block';
+        document.getElementById('paymentMethods').style.display = 'none';
+    }
+
+    // Function to handle amount selection
+    function selectAmount(amount) {
+        document.getElementById('manualAmount').value = amount;
+    }
+
+    // Function to validate input (allow only numbers)
+    function validateInput(input) {
+        input.value = input.value.replace(/\D/g, '');
+    }
+</script>
+      </div>
+    </div>
+        
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+  
+
+
+
+<a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+
+
+
+
+
+                 
+    <div class="footer">
+      <div class="footer-top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-3 col-md-6 footer-links">
+                      <h4>DROP Organization</h4>
+                      <ul>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#about">Login/Sign Up</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Programmes</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Research Centre</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-links">
+                      <h4>Useful Links</h4>
+                      <ul>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
+                      <h4>Contact Us</h4>
+                      <p>
+                        P.O. Box 1900-00502<br>
+                        Karen, Nairobi<br>
+                        Kenya<br>
+                          <strong>Phone:</strong> +254721496316<br>
+                          <strong>Email:</strong> info.dropke@gmail.com<br>
+                      </p>
+
+                      <div class="social-links">
+                          <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
+                          <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
+                          <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
+                          <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
+                          <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
+                      </div>
+
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-newsletter">
+                      <h4>Subscription</h4>
+                      <p>Stay Informed, Stay Empowered: Subscribe to Our Newsletter! Join our community committed to diabetes remission and obesity prevention.</p>
+                      <p>By subscribing to our newsletter, you'll receive regular updates on our latest programs, research findings, healthy living tips, and inspiring stories from individuals like you who are making positive changes in their lives.</p>
+                      <form action="" method="post">
+                          <input type="email" name="email"><input type="submit"  value="Subscribe">
+                      </form>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
+                  Copyright &copy; 2024 Diabetes Remission and Obesity Prevention – DROP organization Website. All Rights Reserved.
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+</body>
+</html>

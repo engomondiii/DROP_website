@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Remission and Obesity Prevention</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="icon" href="./images/image.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <script src="./js/main.js"></script>
+
+    <style>
+        /* Add your custom styles here */
+        .popup {
+            position: fixed;
+            bottom: 10px; /* Adjust the distance from the bottom */
+            right: 10px; /* Adjust the distance from the right */
+            background-color: #fff;
+            padding: 15px;
+            border: 2px solid black;
+            border-radius: 20px;
+            z-index: 9999;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        .popup h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .popup a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #034183;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .popup a:hover {
+            background-color: #0056b3;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #034183;
+        }
+
+
+         
+
+       /* Regular styles for the navigation */
+       .navbar {
+            display: none; /* Initially hide the navigation */
+        }
+
+        /* Media query for phones (screen width less than 768px) */
+        @media only screen and (max-width: 767px) {
+            /* Show hamburger icon and hide navigation */
+            .navbar {
+                display: none;
+            }
+            .hamburger-icon {
+                display: block; /* Show hamburger icon */
+            }
+        }
+
+        /* Media query for laptops (screen width greater than or equal to 768px) */
+        @media only screen and (min-width: 768px) {
+            /* Show the navigation on laptops */
+            .navbar {
+                display: block;
+            }
+            .hamburger-icon {
+                display: none; /* Hide hamburger icon */
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #034183; color: #ffffff;">
+        <div class="logo-container" style="display: flex; align-items: center;">
+            <a href="#" class="logo" style="max-width: 180px; height: auto; margin-right: 10px;"><img src="./images/DropLogo.jpeg" alt="DROP Logo"></a>
+            <div class="header-text" style="font-family: 'Arial', sans-serif;">
+              
+            </div>
+        </div>
+        <div class="header-right" style="display: flex; align-items: center;">
+            <a href="donate.html" class="donate-link" style="color: #ffffff; text-decoration: none; margin-right: 20px; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold;">
+                <span>Donate</span>
+                <i class="fas fa-heart" style="font-size: 24px;"></i>
+            </a>
+            <div class="hamburger-icon" style="display: none;">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul style="list-style-type: none; margin: 0; padding: 0;">
+                <li><a href="#home" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login/Sign Up</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Programmes</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Assessment Tools</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Research Centre</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
+                <li><a href="donate.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate</a></li>
+                <li><a href="careers.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
+                <li><a href="#contact" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
+                <li><a href="#faq" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    
+    <!-- Popup HTML -->
+<div class="popup" id="donationPopup">
+    <span class="close" onclick="closePopup()"><i class="fas fa-times"></i></span>
+    <h2 style="font-weight: bold; color: #034183;">Help Us Fight Diabetes & Obesity!</h2>
+    <p style="font-weight: bold; font-size: 12px;">Donate to DROP Today!</p>
+    <a href="donate.html" style="font-weight: bold;">Donate Now</a>
+</div>
+
+<!-- Your existing HTML content -->
+
+<script>
+    // JavaScript to show the popup when the page loads
+    window.onload = function() {
+        document.getElementById('donationPopup').style.display = 'block';
+    };
+
+    // Function to close the popup
+    function closePopup() {
+        document.getElementById('donationPopup').style.display = 'none';
+    }
+</script>
+    
+
+    
+
+  
+
+  
+
+  <div class="pt-5 pb-5" style="background-color: #f2f2f2;">
+    <div class="container">
+         
+        <div class="row">
+
+           
+            
+      <div class="row">
+
+
+
+        <div class="pt-5 pb-5">
+            <div class="container">
+              <div class="row">
+                <div class="section-head-1 col-sm-12" style="text-align: center;">
+                  <h4 style="margin-top: -5rem;" id="portfolio"><span>Definition and Risk Factors</span></h4>
+                  <p style="text-transform: none;">
+                  </p>
+                </div>
+                
+                <div class="section-head-1 col-sm-12">
+                  <div class="item"> 
+                    <h6 style="font-weight: bold; color: #034183;"></h6>
+                    <p style="text-transform: none; color: #034183;">
+                        High blood pressure, medically termed hypertension, is a condition characterized by elevated pressure in the arteries, making it harder for blood to flow through the vessels. This chronic elevation in blood pressure puts strain on the heart and can lead to serious health complications if left uncontrolled. Risk factors for high blood pressure include obesity, which places additional stress on the heart and blood vessels. Unhealthy dietary choices, such as excessive salt intake and a diet high in processed foods, can contribute to hypertension. Physical inactivity is another significant risk factor, as regular exercise helps regulate blood pressure. Smoking tobacco products and consuming excessive alcohol can also raise blood pressure levels. Additionally, individuals with a family history of hypertension are more likely to develop the condition themselves. Understanding these risk factors is crucial for implementing preventive measures and managing high blood pressure effectively.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        <div class="col-lg-4 col-sm-6">
+
+            <div class="item"> 
+                <span class="icon feature_box_col_one">
+                    <img src="./images/link.jpg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+                <h6 style="font-weight: bold; color: #034183;">Link to Diabetes</h6>
+                    
+            </div>
+        
+        </div>
+        
+        
+        
+        <div class="col-lg-4 col-sm-6">
+            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+
+            <div class="item"> 
+                <span class="icon feature_box_col_one">
+                    <img src="./images/DPP-DPPOS.SVG" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+                <h6 style="font-weight: bold; color: #034183;">Eligibility Criteria</h6>
+                <p style="text-transform: none;">
+                    
+                    Eligibility criteria for participation in Lifestyle Change Programs typically encompass various factors aimed at identifying individuals at high risk of developing type 2 diabetes. While specific requirements may vary depending on the program and healthcare provider, common eligibility criteria include age, with many programs targeting adults over a certain age threshold, often 18 years or older. Additionally, individuals are assessed based on their risk factors for diabetes, which may include overweight or obesity, sedentary lifestyle, family history of diabetes, gestational diabetes during pregnancy, and certain ethnic backgrounds known to have higher diabetes prevalence rates. Health status is another crucial consideration, with participants often required to undergo medical assessments to ensure they can safely engage in program activities and interventions. By establishing clear eligibility criteria, Lifestyle Change Programs aim to enroll individuals who stand to benefit the most from diabetes prevention strategies and who are motivated to make sustainable lifestyle changes for improved health outcomes.</p>
+                    
+            </div>
+            </a>
+        </div>
+
+
+
+
+        
+        <div class="col-lg-4 col-sm-6">
+            <a href="" style="text-decoration: none; color: inherit;">
+
+            <div class="item"> 
+                <span class="icon feature_box_col_one">
+                    <img src="./images/life.jpg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+                <h6 style="font-weight: bold; color: #034183;">Program Components</h6>
+                <p style="text-transform: none;">Lifestyle Change Programs encompass a comprehensive array of components designed to empower participants in making sustainable lifestyle modifications aimed at diabetes prevention. Central to these programs are dietary recommendations tailored to promote healthy eating habits and weight management. Participants are often provided with guidance on portion control, nutrient-rich food choices, meal planning, and strategies for reducing intake of unhealthy fats, sugars, and processed foods. Physical activity guidelines form another integral component, emphasizing the importance of regular exercise in improving insulin sensitivity, managing weight, and enhancing overall health. Programs typically offer recommendations for incorporating aerobic activities, strength training, flexibility exercises, and other forms of physical movement into daily routines. In addition to dietary and exercise guidelines, Lifestyle Change Programs integrate behavior change strategies to foster long-term adherence to healthy habits. Participants learn techniques for goal setting, self-monitoring, problem-solving, and coping with challenges, empowering them to overcome barriers to change and sustain positive behaviors over time. Furthermore, support systems play a crucial role, providing participants with encouragement, accountability, and resources to navigate their journey towards improved health and diabetes prevention.</p>
+            </div>
+            </a>
+        </div>
+
+
+
+
+
+
+        <div class="col-lg-4 col-sm-6">
+
+          <div class="item">
+            <span class="icon feature_box_col_two">
+                <img src="./images/180fig01.jpeg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+            </span>
+            <h6 style="font-weight: bold; color: #034183;">Evidence-Based Approach</h6>
+            <p style="text-transform: none;">Lifestyle Change Programs are grounded in rigorous scientific evidence and research findings pertaining to diabetes prevention and management. These programs draw upon extensive studies demonstrating the effectiveness of lifestyle modifications, including dietary changes, increased physical activity, weight management, and behavior change strategies, in reducing the risk of developing type 2 diabetes. Research conducted over decades has provided compelling evidence that adopting healthier lifestyle habits can significantly lower the incidence of diabetes among high-risk individuals, such as those with prediabetes or metabolic syndrome. Lifestyle interventions have been shown to improve insulin sensitivity, enhance glucose metabolism, promote weight loss, and reduce cardiovascular risk factors associated with diabetes. Moreover, long-term studies, including landmark clinical trials like the Diabetes Prevention Program (DPP), have underscored the sustained benefits of lifestyle interventions in preventing or delaying the onset of diabetes over extended periods. By integrating evidence-based practices and interventions informed by scientific research, Lifestyle Change Programs offer participants a structured and informed approach to diabetes prevention, grounded in the latest advancements in preventive medicine and public health.</p>
+          </div>
+        </div>
+
+
+
+           <div class="col-lg-4 col-sm-6">
+
+          <div class="item">
+            <span class="icon feature_box_col_three">
+                <img src="./images/location.png" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+            </span>
+            <h6 style="font-weight: bold; color: #034183;">Program Locations</h6>
+            <p style="text-transform: none;">The DROP (Diabetes Prevention on the Public Health Option) program extends its reach through various accessible avenues, ensuring individuals from diverse backgrounds can participate in diabetes prevention initiatives. Local community centers serve as vibrant hubs for DROP activities, hosting group sessions, workshops, and supportive gatherings led by trained professionals and community volunteers. Public health departments collaborate with community partners to integrate DROP programs into preventive health initiatives, offering educational seminars, counseling sessions, and health screenings within community settings. Healthcare facilities, including clinics, hospitals, and medical practices, integrate DROP programs into their services, providing personalized guidance and support from healthcare professionals such as dietitians, nurses, and diabetes educators. Additionally, the program embraces digital platforms, offering online versions that feature interactive modules, virtual coaching, and peer support networks, allowing individuals to engage with the program remotely. With these diverse program locations, including local centers, public health initiatives, healthcare settings, and online platforms, the DROP program ensures widespread accessibility to diabetes prevention resources and support, empowering individuals to make positive lifestyle changes regardless of their location or circumstances.</p>
+          </div>
+        </div>
+
+
+
+           <div class="col-lg-4 col-sm-6">
+            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+
+            <div class="item">
+                <span class="icon feature_box_col_four">
+                    <img src="./images/Enrollment.png" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+              <h6 style="font-weight: bold; color: #034183;">Registration and Enrollment</h6>
+              <p style="text-transform: none;">Registration and enrollment in a Lifestyle Change Program under DROP are streamlined processes designed to facilitate easy access for interested individuals. Prospective participants can typically register through multiple channels, including online portals, community centers, healthcare facilities, and public health departments. Registration forms are often available online, allowing individuals to sign up conveniently from their homes or mobile devices. Some programs may require participants to attend an orientation session or informational meeting before enrollment to provide a comprehensive overview of program expectations, goals, and logistics. Enrollment deadlines vary depending on the program's scheduling and availability, with some programs offering continuous enrollment throughout the year and others following specific enrollment periods. Costs associated with enrollment may vary, but many Lifestyle Change Programs strive to minimize financial barriers by offering sliding-scale fees, scholarships, or coverage through health insurance plans. Additionally, some programs may offer financial assistance or subsidies for eligible participants. Overall, the registration and enrollment process aims to be accessible, transparent, and supportive, ensuring that individuals seeking to prevent diabetes can easily navigate the steps to join a Lifestyle Change Program that suits their needs and preferences.</p>
+              <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+            </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-sm-6">
+            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+
+            <div class="item">
+                <span class="icon feature_box_col_five">
+                    <img src="./images/story.webp" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+              <h6 style="font-weight: bold; color: #034183;">Program Success Stories</h6>
+              <p style="text-transform: none;">Program Success Stories within the DROP initiative provide valuable insights and inspiration for individuals considering participation in Lifestyle Change Programs. These testimonials and success stories feature firsthand accounts from program participants who have experienced positive health transformations as a result of their engagement. Through personal narratives, individuals share their journeys, highlighting the challenges they faced, the changes they implemented, and the benefits they attained. Success stories often showcase diverse experiences, demonstrating how Lifestyle Change Programs have helped participants improve their overall well-being, manage their weight, enhance their fitness levels, and reduce their risk of developing diabetes. These accounts also underscore the importance of community support, lifestyle modifications, and behavioral interventions in achieving sustained health outcomes. By sharing these stories, the DROP initiative aims to motivate and empower individuals to take proactive steps toward better health and encourage them to explore the possibilities offered by Lifestyle Change Programs.</p>
+              <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+            </div>
+            </a>
+          </div>
+
+
+          <div class="col-lg-4 col-sm-6">
+            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+
+            <div class="item">
+                <span class="icon feature_box_col_six">
+                    <img src="./images/additional.jfif" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+              <h6 style="font-weight: bold; color: #034183;">Additional Resources</h6>
+              <p style="text-transform: none;"> Within the framework of the DROP initiative, individuals can access a wealth of Additional Resources designed to support diabetes prevention and foster healthy lifestyle choices. These resources encompass a diverse array of tools and materials tailored to address various aspects of wellness and self-care. Among the available resources are comprehensive meal plans offering nutritious and balanced dietary options conducive to diabetes prevention and management. Additionally, individuals can explore exercise routines tailored to their fitness levels and preferences, promoting physical activity as an integral component of a healthy lifestyle. Educational materials are also readily accessible, providing valuable insights into diabetes prevention strategies, risk factors, and management techniques. These resources are designed to empower individuals with knowledge and practical guidance, enabling them to make informed decisions about their health and well-being. By offering a comprehensive suite of Additional Resources, the DROP initiative aims to equip individuals with the tools and support they need to embark on their journey toward optimal health and wellness.</p>
+              <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+            </div>
+            </a>
+          </div>
+
+
+
+          <div class="col-lg-4 col-sm-6">
+            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+
+            <div class="item">
+                <span class="icon feature_box_col_six">
+                    <img src="./images/wellness.png" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+              <h6 style="font-weight: bold; color: #034183;">Embracing a Journey of Wellness: Nurturing Health Through Lifestyle Change</h6>
+              <p style="text-transform: none;">As you delve into the Lifestyle Change Program, remember that it's not just a journey of managing diabetes risk factors; it's a profound shift toward holistic well-being. Each step you take, whether it's adopting healthier eating habits, increasing physical activity, or cultivating mindfulness, contributes to a lifestyle that nurtures your body and mind. Along the way, you'll encounter challenges and victories, setbacks and breakthroughs, but every experience is an opportunity for growth. Embrace the support of your community, draw inspiration from success stories, and harness your inner resilience. Your commitment to this program reflects your dedication to a life of vitality, and with persistence and determination, you'll pave the path to sustained health and vitality.</p>
+              <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+            </div>
+            </a>
+          </div>
+
+
+
+
+
+      </div>
+    </div>
+</div>
+
+
+  
+        
+        
+
+
+        
+
+
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+
+          
+          
+
+
+<div class="pt-5 pb-5" style="background-color: #f2f2f2;">
+    <div class="container">
+         
+        <div class="pt-5 pb-5">
+            <div class="container">
+              <div class="row">
+                <div class="section-head-1 col-sm-12" style="text-align: center;">
+                  <h4 style="margin-top: -5rem;" id="portfolio"><span>Are you at risk?</span></h4>
+                  <p style="text-transform: none;">
+                    Learning your risk is the first step in taking action against type 2 diabetes. Take our 60-Second Type 2 Diabetes Risk Test today to receive actionable next steps in your health journey.
+                  </p>
+                </div>
+                
+                <div class="section-head-1 col-sm-12">
+                  <div class="item"> 
+                    <h6 style="font-weight: bold; color: #034183;">Take The Diabetes Risk Test</h6>
+                    <p style="text-transform: none;">
+                      <button onclick="startTest()" id="startButton" style="border-radius: 8px; color: white; background-color: #034183; font-weight: bold;">Start Test</button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          
+        
+      </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+      <div class="footer-top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-3 col-md-6 footer-links">
+                      <h4>DROP Organization</h4>
+                      <ul>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#about">Login/Sign Up</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Programmes</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Research Centre</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-links">
+                      <h4>Useful Links</h4>
+                      <ul>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
+                      <h4>Contact Us</h4>
+                      <p style="text-transform: none;">
+                        P.O. Box 1900-00502<br>
+                        Karen, Nairobi<br>
+                        Kenya<br>
+                          <strong>Phone:</strong> +254721496316<br>
+                          <strong>Email:</strong> info.dropke@gmail.com<br>
+                      </p>
+
+                      <div class="social-links">
+                          <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
+                          <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
+                          <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
+                          <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
+                          <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
+                      </div>
+
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-newsletter">
+                      <h4>Subscription</h4>
+                      <p style="text-transform: none;">Stay Informed, Stay Empowered: Subscribe to Our Newsletter!Join our community committed to diabetes remission and obesity prevention.</p>
+                      <p style="text-transform: none;">By subscribing to our newsletter, you'll receive regular updates on our latest programs, research findings, healthy living tips, and inspiring stories from individuals like you who are making positive changes in their lives.</p>
+                      <form action="" method="post">
+                          <input type="email" name="email"><input type="submit"  value="Subscribe">
+                      </form>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
+                  Copyright &copy; 2024 Diabetes Remission and Obesity Prevention – DROP organization Website. All Rights Reserved.
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Remission and Obesity Prevention</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="icon" href="./images/image.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <script src="./js/main.js"></script>
+
+    <style>
+        /* Add your custom styles here */
+        .popup {
+            position: fixed;
+            bottom: 10px; /* Adjust the distance from the bottom */
+            right: 10px; /* Adjust the distance from the right */
+            background-color: #fff;
+            padding: 15px;
+            border: 2px solid black;
+            border-radius: 20px;
+            z-index: 9999;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        .popup h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .popup a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #034183;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .popup a:hover {
+            background-color: #0056b3;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #034183;
+        }
+
+
+         
+
+       /* Regular styles for the navigation */
+       .navbar {
+            display: none; /* Initially hide the navigation */
+        }
+
+        /* Media query for phones (screen width less than 768px) */
+        @media only screen and (max-width: 767px) {
+            /* Show hamburger icon and hide navigation */
+            .navbar {
+                display: none;
+            }
+            .hamburger-icon {
+                display: block; /* Show hamburger icon */
+            }
+        }
+
+        /* Media query for laptops (screen width greater than or equal to 768px) */
+        @media only screen and (min-width: 768px) {
+            /* Show the navigation on laptops */
+            .navbar {
+                display: block;
+            }
+            .hamburger-icon {
+                display: none; /* Hide hamburger icon */
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #034183; color: #ffffff;">
+        <div class="logo-container" style="display: flex; align-items: center;">
+            <a href="#" class="logo" style="max-width: 180px; height: auto; margin-right: 10px;"><img src="./images/DropLogo.jpeg" alt="DROP Logo"></a>
+            <div class="header-text" style="font-family: 'Arial', sans-serif;">
+              
+            </div>
+        </div>
+        <div class="header-right" style="display: flex; align-items: center;">
+            <a href="donate.html" class="donate-link" style="color: #ffffff; text-decoration: none; margin-right: 20px; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold;">
+                <span>Donate</span>
+                <i class="fas fa-heart" style="font-size: 24px;"></i>
+            </a>
+            <div class="hamburger-icon" style="display: none;">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul style="list-style-type: none; margin: 0; padding: 0;">
+                <li><a href="#home" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login/Sign Up</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Programmes</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Assessment Tools</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Research Centre</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
+                <li><a href="donate.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate</a></li>
+                <li><a href="careers.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
+                <li><a href="#contact" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
+                <li><a href="#faq" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    
+    <!-- Popup HTML -->
+<div class="popup" id="donationPopup">
+    <span class="close" onclick="closePopup()"><i class="fas fa-times"></i></span>
+    <h2 style="font-weight: bold; color: #034183;">Help Us Fight Diabetes & Obesity!</h2>
+    <p style="font-weight: bold; font-size: 12px;">Donate to DROP Today!</p>
+    <a href="donate.html" style="font-weight: bold;">Donate Now</a>
+</div>
+
+<!-- Your existing HTML content -->
+
+<script>
+    // JavaScript to show the popup when the page loads
+    window.onload = function() {
+        document.getElementById('donationPopup').style.display = 'block';
+    };
+
+    // Function to close the popup
+    function closePopup() {
+        document.getElementById('donationPopup').style.display = 'none';
+    }
+</script>
+    
+
+    
+
+  
+
+  
+
+  <div class="pt-5 pb-5" style="background-color: #f2f2f2;">
+    <div class="container">
+         
+        <div class="row">
+
+           
+            
+      <div class="row">
+
+
+
+        <div class="pt-5 pb-5">
+            <div class="container">
+              <div class="row">
+                <div class="section-head-1 col-sm-12" style="text-align: center;">
+                  <h4 style="margin-top: -5rem;" id="portfolio"><span>Understanding the Impact of Overweight on Diabetes Prevention</span></h4>
+                  <p style="text-transform: none;">
+                  </p>
+                </div>
+                
+                <div class="section-head-1 col-sm-12">
+                  <div class="item"> 
+                    <h6 style="font-weight: bold; color: #034183;"></h6>
+                    <p style="text-transform: none; color: #034183;">
+                        Welcome to our comprehensive guide on understanding the intricate relationship between overweight and diabetes prevention. In today's fast-paced world, where convenience often trumps health-conscious choices, the prevalence of overweight and obesity has reached alarming levels. This page serves as a beacon of knowledge, shedding light on how excess weight significantly increases the risk of developing type 2 diabetes and other related health complications. By delving into the physiological mechanisms behind insulin resistance, exploring the role of lifestyle modifications, and highlighting preventive measures, we aim to empower individuals with the knowledge and tools necessary to proactively manage their weight and safeguard against the onset of diabetes. Join us on this enlightening journey as we uncover the profound impact of overweight on diabetes prevention and embark on a path toward improved health and vitality.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        <div class="col-lg-4 col-sm-6">
+
+            <div class="item"> 
+                <span class="icon feature_box_col_one">
+                    <img src="./images/risk.jfif" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+                <h6 style="font-weight: bold; color: #034183;">Health Risks of Being Overweight</h6>
+                <p style="text-transform: none;">Being overweight or obese presents significant health risks that can lead to the development of various chronic conditions, including type 2 diabetes, heart disease, stroke, and high blood pressure. One of the primary concerns is the relationship between excess body weight and insulin resistance, a condition central to the onset of type 2 diabetes. When the body's cells become resistant to insulin, blood sugar levels rise, increasing the risk of diabetes.
+
+                    Furthermore, excess weight contributes to the accumulation of plaque in the arteries, a process known as atherosclerosis. This buildup narrows the arteries, restricting blood flow to the heart and other vital organs, thereby elevating the risk of heart disease and stroke, two leading causes of mortality globally. Additionally, the added strain on the heart and blood vessels due to excess weight often results in high blood pressure, or hypertension, further exacerbating cardiovascular risks.
+                    
+                    Understanding these health risks emphasizes the critical importance of maintaining a healthy weight through lifestyle modifications such as balanced nutrition and regular physical activity. By addressing weight management proactively, individuals can mitigate the risk of developing these serious health conditions, thereby enhancing overall well-being and longevity.</p>
+                    
+            </div>
+        
+        </div>
+        
+        
+        
+        <div class="col-lg-4 col-sm-6">
+
+            <div class="item"> 
+                <span class="icon feature_box_col_one">
+                    <img src="./images/insulin.jpg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+                <h6 style="font-weight: bold; color: #034183;">Insulin Resistance</h6>
+                <p style="text-transform: none;">Insulin resistance occurs when the body's cells become less responsive to the effects of insulin, a hormone produced by the pancreas that regulates blood sugar levels. Excess fat, particularly visceral fat around the abdomen, contributes significantly to insulin resistance. As fat cells expand due to overconsumption of calories and sedentary lifestyles, they release fatty acids into the bloodstream. These fatty acids interfere with the body's ability to use insulin effectively, leading to elevated blood sugar levels.
+
+                    Over time, the pancreas compensates by producing more insulin to maintain normal blood sugar levels. However, as insulin resistance progresses, the pancreas struggles to keep up with the increased demand, resulting in higher levels of glucose in the bloodstream. This chronic elevation of blood sugar eventually leads to the development of type 2 diabetes.
+                    
+                    Understanding the link between excess fat, insulin resistance, and type 2 diabetes underscores the importance of lifestyle modifications such as adopting a healthy diet, engaging in regular physical activity, and maintaining a healthy weight. These interventions can help prevent or delay the onset of type 2 diabetes by improving insulin sensitivity and promoting overall metabolic health.</p>
+                    
+            </div>
+        </div>
+
+
+
+
+        
+        <div class="col-lg-4 col-sm-6">
+
+            <div class="item"> 
+                <span class="icon feature_box_col_one">
+                    <img src="./images/lifestyle-modification-3-320.webp" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+                <h6 style="font-weight: bold; color: #034183;">Lifestyle Modifications</h6>
+                <p style="text-transform: none;">Lifestyle modifications play a crucial role in managing weight and reducing the risk of developing diabetes. Adopting healthy habits such as engaging in regular physical activity and following a balanced diet can have significant benefits for overall health and well-being. Regular exercise helps to burn calories, improve insulin sensitivity, and control blood sugar levels, making it an essential component of diabetes prevention and management. Additionally, incorporating a balanced diet rich in fruits, vegetables, whole grains, and lean proteins can help control weight, regulate blood sugar, and reduce the risk of developing diabetes-related complications.
+
+                    By making these lifestyle modifications, individuals can effectively manage their weight, improve their overall health, and reduce the likelihood of developing diabetes. Moreover, these habits promote long-term well-being by lowering the risk of other chronic conditions such as heart disease, stroke, and high blood pressure. Emphasizing the importance of adopting healthy lifestyle habits empowers individuals to take control of their health and make positive changes that can lead to a healthier and more fulfilling life.
+                    
+                    </p>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="col-lg-4 col-sm-6">
+
+          <div class="item">
+            <span class="icon feature_box_col_two">
+                <img src="./images/preventive.png" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+            </span>
+            <h6 style="font-weight: bold; color: #034183;">Preventive Measures</h6>
+            <p style="text-transform: none;">Preventive measures are instrumental in mitigating the risk of developing diabetes, with a focus on achieving and maintaining a healthy weight. Weight loss programs tailored to individual needs provide valuable support and guidance in managing weight effectively. These programs often combine dietary changes, exercise regimens, and behavioral strategies to promote sustainable lifestyle modifications. By adopting a balanced and nutritious diet, individuals can regulate their calorie intake, improve metabolic health, and reduce the likelihood of developing insulin resistance and diabetes.
+
+                Incorporating regular physical activity into daily routines is another key preventive measure. Exercise not only helps burn calories but also enhances insulin sensitivity, which is crucial for maintaining stable blood sugar levels. Engaging in both aerobic exercises, such as walking, cycling, or swimming, and strength training activities helps build muscle mass, boost metabolism, and support weight management efforts.
+                
+                Emphasizing preventive measures empowers individuals to take proactive steps toward reducing their risk of diabetes and promoting overall health and well-being. By implementing sustainable lifestyle changes and seeking support from healthcare professionals and community resources, individuals can effectively manage their weight and significantly decrease their susceptibility to diabetes-related complications.</p>
+          </div>
+        </div>
+
+
+
+           <div class="col-lg-4 col-sm-6">
+
+          <div class="item">
+            <span class="icon feature_box_col_three">
+                <img src="./images/monitoring.jfif" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+            </span>
+            <h6 style="font-weight: bold; color: #034183;">Monitoring and Support</h6>
+            <p style="text-transform: none;">Regular monitoring of weight and blood sugar levels plays a pivotal role in diabetes prevention efforts, providing valuable insights into an individual's health status and progress towards weight management goals. Tracking weight fluctuations enables individuals to identify trends and patterns, empowering them to make informed decisions regarding dietary choices, physical activity levels, and lifestyle modifications. Moreover, consistent monitoring of blood sugar levels allows for early detection of abnormalities, facilitating timely intervention and preventive measures to mitigate the risk of diabetes development.
+
+                Seeking professional support and guidance from healthcare providers or diabetes prevention programs is integral to addressing weight-related concerns effectively. Healthcare professionals offer personalized assessments, evidence-based interventions, and tailored recommendations to support individuals in managing their weight and reducing diabetes risk. Diabetes prevention programs provide structured support systems, educational resources, and behavioral strategies to empower participants in adopting healthy lifestyle habits and sustaining long-term weight management efforts.
+                
+                Emphasizing the importance of regular monitoring and seeking professional support underscores a proactive approach to diabetes prevention. By actively engaging in self-monitoring practices and accessing comprehensive support services, individuals can navigate their weight management journey with confidence, resilience, and a heightened sense of accountability.</p>
+          </div>
+        </div>
+
+
+
+           <div class="col-lg-4 col-sm-6">
+
+            <div class="item">
+                <span class="icon feature_box_col_four">
+                    <img src="./images/wordpress-feature-image-1.png" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+              <h6 style="font-weight: bold; color: #034183;">Empowering Health Through Weight Management</h6>
+              <p style="text-transform: none;">In navigating the realm of weight management for diabetes prevention, it's evident that knowledge is indeed power. By understanding the profound impact of excess weight on health, individuals gain the insight needed to make informed decisions and take proactive steps toward a healthier future. Embracing lifestyle modifications, adopting balanced nutrition, and engaging in regular physical activity are pivotal in the journey toward weight management and diabetes prevention. Moreover, seeking ongoing support from healthcare providers and leveraging community resources can empower individuals to navigate this path effectively. As we embark on this collective endeavor to combat diabetes and promote well-being, let us remain steadfast in our commitment to prioritizing health and embracing sustainable habits. Together, we can forge a future where diabetes is preventable, and optimal health is within reach for all.</p>
+            </div>
+            
+          </div>
+
+         
+
+
+          
+
+
+
+          
+
+
+
+
+
+      </div>
+    </div>
+</div>
+
+
+  
+        
+        
+
+
+        
+
+
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+
+          
+          
+
+
+<div class="pt-5 pb-5" style="background-color: #f2f2f2;">
+    <div class="container">
+         
+        <div class="pt-5 pb-5">
+            <div class="container">
+              <div class="row">
+                <div class="section-head-1 col-sm-12" style="text-align: center;">
+                  <h4 style="margin-top: -5rem;" id="portfolio"><span>Are you at risk?</span></h4>
+                  <p style="text-transform: none;">
+                    Learning your risk is the first step in taking action against type 2 diabetes. Take our 60-Second Type 2 Diabetes Risk Test today to receive actionable next steps in your health journey.
+                  </p>
+                </div>
+                
+                <div class="section-head-1 col-sm-12">
+                  <div class="item"> 
+                    <h6 style="font-weight: bold; color: #034183;">Take The Diabetes Risk Test</h6>
+                    <p style="text-transform: none;">
+                      <button onclick="startTest()" id="startButton" style="border-radius: 8px; color: white; background-color: #034183; font-weight: bold;">Start Test</button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          
+        
+      </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+      <div class="footer-top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-3 col-md-6 footer-links">
+                      <h4>DROP Organization</h4>
+                      <ul>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#about">Login/Sign Up</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Programmes</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Research Centre</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-links">
+                      <h4>Useful Links</h4>
+                      <ul>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
+                      <h4>Contact Us</h4>
+                      <p style="text-transform: none;">
+                        P.O. Box 1900-00502<br>
+                        Karen, Nairobi<br>
+                        Kenya<br>
+                          <strong>Phone:</strong> +254721496316<br>
+                          <strong>Email:</strong> info.dropke@gmail.com<br>
+                      </p>
+
+                      <div class="social-links">
+                          <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
+                          <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
+                          <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
+                          <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
+                          <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
+                      </div>
+
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-newsletter">
+                      <h4>Subscription</h4>
+                      <p style="text-transform: none;">Stay Informed, Stay Empowered: Subscribe to Our Newsletter!Join our community committed to diabetes remission and obesity prevention.</p>
+                      <p style="text-transform: none;">By subscribing to our newsletter, you'll receive regular updates on our latest programs, research findings, healthy living tips, and inspiring stories from individuals like you who are making positive changes in their lives.</p>
+                      <form action="" method="post">
+                          <input type="email" name="email"><input type="submit"  value="Subscribe">
+                      </form>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
+                  Copyright &copy; 2024 Diabetes Remission and Obesity Prevention – DROP organization Website. All Rights Reserved.
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+</body>
+</html>
