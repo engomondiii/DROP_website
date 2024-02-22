@@ -62,21 +62,7 @@
 
          
 
-       /* Regular styles for the navigation */
-       .navbar {
-            display: none; /* Initially hide the navigation */
-        }
-
-        /* Media query for phones (screen width less than 768px) */
-        @media only screen and (max-width: 767px) {
-            /* Show hamburger icon and hide navigation */
-            .navbar {
-                display: none;
-            }
-            .hamburger-icon {
-                display: block; /* Show hamburger icon */
-            }
-        }
+       
 
         /* Media query for laptops (screen width greater than or equal to 768px) */
         @media only screen and (min-width: 768px) {
@@ -84,9 +70,7 @@
             .navbar {
                 display: block;
             }
-            .hamburger-icon {
-                display: none; /* Hide hamburger icon */
-            }
+            
         }
     </style>
     
@@ -94,7 +78,7 @@
 <body>
     <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #034183; color: #ffffff;">
         <div class="logo-container" style="display: flex; align-items: center;">
-            <a href="#" class="logo" style="max-width: 180px; height: auto; margin-right: 10px;"><img src="./images/DropLogo.jpeg" alt="DROP Logo"></a>
+            <a href="#" class="logo" style="max-width: 180px; height: auto; margin-right: 10px;"><img src="./images/DropLogo.jpeg" alt="DROP Logo" style="width: 70px;height: 60px;"></a>
             <div class="header-text" style="font-family: 'Arial', sans-serif;">
               
             </div>
@@ -104,7 +88,7 @@
                 <span>Donate</span>
                 <i class="fas fa-heart" style="font-size: 24px;"></i>
             </a>
-            <div class="hamburger-icon" style="display: none;">
+            <div class="hamburger-icon" >
                 <i class="fas fa-bars"></i>
             </div>
         </div>
@@ -152,8 +136,8 @@
     
 
   <section id="home" class="home">
-      <h1 style="font-weight: bolder;">Diabetes Remission and Obesity Prevention</h1>
-      <h2 style="font-weight: bold; text-transform: none; font-style: italic;">Empowering Lives Through Diabetes Management and Healthy Lifestyle Advocacy</h2>
+      <h1 style="font-weight: bolder; font-size: 35px;">Diabetes Remission and Obesity Prevention</h1>
+      <h2 style="text-transform: none; font-style: italic; font-size:18px ;">Empowering Lives Through Diabetes Management and Healthy Lifestyle Advocacy</h2>
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
     <div class="wave wave3"></div>
@@ -187,7 +171,7 @@
             <p style="text-transform: none;">Our Home Page serves as a vibrant canvas, showcasing the breadth and depth of our organization's efforts in combating Diabetes and Obesity. Through engaging visuals, informative articles, and inspiring narratives, we aim to provide visitors with a comprehensive understanding of our initiatives. As you explore our Home Page, remember that each click, each read, and each interaction contributes to a collective vision of health, vitality, and well-being. Together, we can transform lives and build a brighter, healthier future for generations to come.</p>
           </div>
         <div class="col-lg-4 col-sm-6">
-            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+            <a href="Dprevention.html" style="text-decoration: none; color: inherit;">
                 <div class="item" > 
                     <span class="icon feature_box_col_one">
                         <i class="fas fa-plus-circle" style="color: #034183; font-size: 54px;"></i>
@@ -202,7 +186,7 @@
         
         
         <div class="col-lg-4 col-sm-6">
-            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+            <a href="Prediabetes.html" style="text-decoration: none; color: inherit;">
           <div class="item">
             <span class="icon feature_box_col_two">
                 <i class="fas fa-user-md" style="color: #034183; font-size: 54px;"></i>
@@ -215,7 +199,7 @@
         </div>
         
         <div class="col-lg-4 col-sm-6">
-            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+            <a href="NewlyDiagnosed.html" style="text-decoration: none; color: inherit;">
 
           <div class="item">
             <span class="icon feature_box_col_three">
@@ -229,7 +213,7 @@
         </div>
 
         <div class="col-lg-4 col-sm-6">
-            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+            <a href="TypesOfDiabetes.html" style="text-decoration: none; color: inherit;">
 
             <div class="item">
                 <span class="icon feature_box_col_four">
@@ -243,7 +227,7 @@
           </div>
 
           <div class="col-lg-4 col-sm-6">
-            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+            <a href="lifeWithDiabetes.html" style="text-decoration: none; color: inherit;">
 
             <div class="item">
                 <span class="icon feature_box_col_five">
@@ -257,7 +241,7 @@
           </div>
 
           <div class="col-lg-4 col-sm-6">
-            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+            <a href="DiabetesComplications.html" style="text-decoration: none; color: inherit;">
 
             <div class="item">
                 <span class="icon feature_box_col_six">
@@ -402,6 +386,23 @@
             </div>
             </a>
           </div>
+
+          <div class="col-lg-4 col-sm-6">
+            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+
+            <div class="item">
+                <span class="icon feature_box_col_six">
+                    <img src="./images/contact-us-1728620_640.jpg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
+                </span>
+              <h6 style="font-weight: bold; color: #034183;">Contact Us</h6>
+              <p style="text-transform: none;">Have questions or feedback? We're here to listen. Connect with us through our Contact Page, and let your voice be heard. Your input is invaluable as we continue to refine and expand our efforts in pursuit of our mission.</p>
+              <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+            </div>
+            </a>
+          </div>
+
+
+
       </div>
     </div>
 </div>
@@ -691,13 +692,7 @@
             <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
           </div>
         </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="item"> <span class="icon feature_box_col_six"><i class="fa fa-camera"></i></span>
-              <h6 style="font-weight: bold; color: #034183;">DROP Health and Wellness Campaigns</h6>
-              <p style="text-transform: none;">DROP initiated health and wellness campaigns to educate Adolescent Boys and Young Men (ABYM) and Adolescent Girls and Young Women (AGYW) about the significance of physical activity and nutrition. The objective was to foster behavior change and encourage healthier lifestyle choices within the target demographic. Utilizing diverse communication channels such as social media, community events, and educational materials, the campaigns disseminated crucial messages on physical fitness and nutrition. The impact was evident through heightened awareness regarding the benefits of leading an active lifestyle and consuming nutritious foods.<br><br><br></p>
-              <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
-            </div>
-      </div>
+        
     </div>
     
 </div>
@@ -830,16 +825,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-4 col-sm-6">
-                <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
-
-                <div class="item">
-                    <h6 style="font-weight: bold; color: #034183;">Community Health Fair</h6>
-                    <p><strong> <i class="fa fa-calendar" style="color: #034183;"></i> Date:</strong> April 15, 2024<br><strong> <i class="fa fa-clock" style="color: #034183;"></i>Time:</strong> 9:00 AM - 3:00 PM<br><strong> <i class="fa fa-map-marker" style="color: #034183;"></i>Location:</strong> City Park</p>
-                    <a href="#" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Learn More</a>
-                </div>
-                </a>
-            </div>
+           
 
             <div class="col-lg-4 col-sm-6">
                 <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
@@ -1038,7 +1024,7 @@
       </div>
   </section>
 
-    <div class="footer">
+    <div class="footer" style="width: 1380px;">
       <div class="footer-top">
           <div class="container">
               <div class="row">
@@ -1067,6 +1053,7 @@
                   <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
                       <h4>Contact Us</h4>
                       <p style="text-transform: none;">
+                        Diabetes Remission And Obesity Prevention(DROP)<br>
                         P.O. Box 1900-00502<br>
                         Karen, Nairobi<br>
                         Kenya<br>
