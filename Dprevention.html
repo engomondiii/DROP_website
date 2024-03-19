@@ -64,19 +64,12 @@
 
        
 
-        /* Media query for laptops (screen width greater than or equal to 768px) */
-        @media only screen and (min-width: 768px) {
-            /* Show the navigation on laptops */
-            .navbar {
-                display: block;
-            }
-            
-        }
+       
     </style>
     
 </head>
 <body>
-    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #034183; color: #ffffff;">
+    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
         <div class="logo-container" style="display: flex; align-items: center;">
             <a href="#" class="logo" style="max-width: 180px; height: auto; margin-right: 10px;"><img src="./images/DropLogo.jpeg" alt="DROP Logo" style="width: 70px;height: 60px;"></a>
             <div class="header-text" style="font-family: 'Arial', sans-serif;">
@@ -85,28 +78,74 @@
         </div>
         <div class="header-right" style="display: flex; align-items: center;">
             <a href="donate.html" class="donate-link" style="color: #ffffff; text-decoration: none; margin-right: 20px; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold;">
-                <span>Donate</span>
-                <i class="fas fa-heart" style="font-size: 24px;"></i>
+                <!-- <span>Donate</span>
+                <i class="fas fa-heart" style="font-size: 24px;"></i> -->
             </a>
             <div class="hamburger-icon" >
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-        <nav class="navbar">
+        
+        <nav class="navbar" id="navbar" onclick="toggleColor()">
             <ul style="list-style-type: none; margin: 0; padding: 0;">
-                <li><a href="#home" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login/Sign Up</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Programmes</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Assessment Tools</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Research Centre</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
-                <li><a href="donate.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate</a></li>
-                <li><a href="careers.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
-                <li><a href="#contact" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
-                <li><a href="#faq" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
+                <li><a href="index.html" id="homeLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
+                <li><a href="signup.html" id="signupLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Sign Up</a></li>
+                <li><a href="Login.html" id="loginLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login</a></li>
+                <li><a href="donate.html" id="donateLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate Today</a></li>
+                <li><a href="#" id="blogsLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
+                <li><a href="careers.html" id="careerLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
+                <li><a href="#contact" id="contactLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
+                <li><a href="#faq" id="faqLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
             </ul>
         </nav>
+        
+        <script>
+        function toggleColor() {
+            const navbar = document.getElementById('navbar');
+            // Toggle the 'clicked' class on the navbar when it's clicked
+            navbar.classList.toggle('clicked');
+        }
+        </script>
+        
+        <style>
+        .navbar.clicked a {
+            color: black;
+        }
+    
+        @media only screen and (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .header-right {
+                margin-top: 10px; /* Adjust spacing */
+            }
+            .navbar {
+                display: none; /* Hide navbar on small screens */
+                flex-direction: column;
+                background-color: #333; /* Example background color */
+                position: absolute;
+                top: 100%; /* Position below the header */
+                left: 0;
+                width: 100%;
+            }
+            .navbar.clicked {
+                display: flex; /* Show navbar when clicked */
+            }
+            .navbar ul {
+                padding: 10px;
+            }
+            .navbar li {
+                margin-bottom: 10px; /* Adjust spacing */
+            }
+            .navbar a {
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+        </style>
     </header>
+    
     
     
     
@@ -180,7 +219,7 @@
                     <img src="./images/change.jfif" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
                 </span>
                 <h6 style="font-weight: bold; color: #034183;">Learn About Lifestyle Change Programs</h6>
-                <p style="text-transform: none;">Here, you will find comprehensive information about Lifestyle Change Programs designed to help individuals reduce their risk of developing type 2 diabetes through healthy lifestyle modifications. Our Lifestyle Change Programs are rooted in evidence-based practices and aim to empower participants to make sustainable changes in their dietary habits, physical activity levels, and overall behavior. By promoting healthy living and fostering supportive environments, these programs offer individuals the tools and guidance they need to take proactive steps towards preventing diabetes and improving their overall well-being. Explore the resources available on this page to learn more about program eligibility, components, success stories, and how to enroll. Together, we can work towards a healthier future free from the burden of diabetes.</p>
+                <p style="text-transform: none;">Here, you will find comprehensive information about Lifestyle Change Programs designed to help individuals reduce their risk of developing type 2 diabetes through healthy lifestyle modifications. Our Lifestyle Change Programs are rooted in evidence-based practices and aim to empower participants to make sustainable changes in their dietary habits, physical activity levels, and overall behavior. By promoting healthy living and fostering supportive environments, these programs offer individuals the tools and guidance they need to take proactive steps towards preventing diabetes and improving their overall well-being. Explore the resources available on this page to learn more about program eligibility, components, success stories, and how to enroll.</p>
 
             </div>
             </a>
@@ -196,10 +235,20 @@
                 <span class="icon feature_box_col_one">
                     <img src="./images/overweight.jfif" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
                 </span>
-                <h6 style="font-weight: bold; color: #034183;">Overweight? Know the impact.</h6>
-                <p style="text-transform: none;">Welcome to our "Overweight" section, where we explore the critical link between weight management and diabetes prevention. Being overweight or obese significantly increases the risk of developing type 2 diabetes and other chronic health conditions. Understanding the impact of excess weight on your health is the first step toward making positive lifestyle changes. In this section, we delve into the effects of excess weight on diabetes risk, the role of lifestyle modifications in prevention, and practical strategies for achieving and maintaining a healthy weight. Let's embark on a journey toward improved health and well-being by exploring the connection between weight management and diabetes prevention.</p>
 
+                <h6 style="font-weight: bold; color: #034183;">Overweight? Know the impact.</h6>
+
+                ....
+                <p style="text-transform: none;">Welcome to our "Overweight" section, where we explore the critical link between weight management and diabetes prevention. Being overweight or obese significantly increases the risk of developing type 2 diabetes and other chronic health conditions. Understanding the impact of excess weight on your health is the first step toward making positive lifestyle changes. In this section, we delve into the effects of excess weight on diabetes risk, the role of lifestyle modifications in prevention, and practical strategies for achieving and maintaining a healthy weight. Let's embark on a journey toward improved health and well-being by exploring the connection between weight management and diabetes prevention.</p>
+                 
+                ....
+
+
+
+                
             </div>
+
+            
             </a>
         
         </div>
@@ -217,7 +266,7 @@
                 <h6 style="font-weight: bold; color: #034183;">Need reasons to quit Smoking?</h6>
                 <p style="text-transform: none;">Quitting smoking is a pivotal step towards improving your overall health and reducing the risk of various chronic diseases, including diabetes. Smoking not only damages your lungs and respiratory system but also significantly contributes to the development of insulin resistance, a key factor in the onset of type 2 diabetes. The harmful chemicals in tobacco smoke impair the body's ability to utilize insulin effectively, leading to elevated blood sugar levels and an increased risk of diabetes complications.
 
-                    Moreover, smoking exacerbates existing health issues commonly associated with diabetes, such as cardiovascular diseases, kidney problems, and nerve damage. It accelerates the progression of diabetic complications, making it harder to manage the condition effectively.</p>
+                    Moreover, smoking exacerbates existing health issues commonly associated with diabetes, such as cardiovascular diseases, kidney problems, and nerve damage.</p>
                     
             </div>
         
@@ -255,7 +304,7 @@
 
 
         <div class="col-lg-4 col-sm-6">
-            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+            <a href="" style="text-decoration: none; color: inherit;">
 
           <div class="item">
             <span class="icon feature_box_col_three">
@@ -263,7 +312,7 @@
             </span>
             <h6 style="font-weight: bold; color: #034183;">We are Here To Help</h6>
             <p style="text-transform: none;">"We Are Here to Help" serves as a guiding beacon for individuals seeking assistance and support in their journey towards diabetes prevention. At DROP, we understand the complexities of managing health and offer a range of resources tailored to meet diverse needs. Whether you're looking for a supportive community to share experiences and insights, educational workshops to deepen your understanding of diabetes prevention strategies, or one-on-one counseling to navigate lifestyle changes, we have you covered. Our online platform hosts a wealth of resources, from informative articles to interactive tools, designed to empower individuals with knowledge and practical tips for managing their health proactively. Moreover, we facilitate access to healthcare professionals who can offer personalized guidance and support. With our holistic approach to diabetes prevention, we aim to equip you with the tools, knowledge, and support you need.</p>
-            <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+            <a href="" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
           </div>
           </a>
         </div>
@@ -571,75 +620,91 @@
 
 
 
-    <div class="footer">
-      <div class="footer-top">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-3 col-md-6 footer-links">
-                      <h4>DROP Organization</h4>
-                      <ul>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#about">Login/Sign Up</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Programmes</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Research Centre</a></li>
-                      </ul>
-                  </div>
+<div class="footer" style="width: 1380px;">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
 
-                  <div class="col-lg-3 col-md-6 footer-links">
-                      <h4>Useful Links</h4>
-                      <ul>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
-                      </ul>
-                  </div>
 
-                  <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
-                      <h4>Contact Us</h4>
-                      <p style="text-transform: none;">
-                        Diabetes Remission and Obesity Prevention(DROP)<br>
-                        P.O. Box 1900-00502<br>
-                        Karen, Nairobi<br>
-                        Kenya<br>
-                          <strong>Phone:</strong> +254721496316<br>
-                          <strong>Email:</strong> info.dropke@gmail.com<br>
-                      </p>
+                 
+              <div class="col-lg-3 col-md-6 footer-links">
+                  <h4>Useful Links</h4>
+                  <ul>
+                    <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
+                    <li><i class="ion-ios-arrow-forward"></i> <a href="signup.html">Sign Up</a></li>
+                    <li><i class="ion-ios-arrow-forward"></i> <a href="Login.html">Login</a></li>
 
-                      <div class="social-links">
-                          <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
-                          <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
-                          <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
-                          <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
-                          <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
-                      </div>
 
-                  </div>
-
-                  <div class="col-lg-3 col-md-6 footer-newsletter">
-                      <h4>Subscription</h4>
-                      <p style="text-transform: none;">Stay Informed, Stay Empowered: Subscribe to Our Newsletter!Join our community committed to diabetes remission and obesity prevention.</p>
-                      <p style="text-transform: none;">By subscribing to our newsletter, you'll receive regular updates on our latest programs, research findings, healthy living tips, and inspiring stories from individuals like you who are making positive changes in their lives.</p>
-                      <form action="" method="post">
-                          <input type="email" name="email"><input type="submit"  value="Subscribe">
-                      </form>
-                  </div>
-
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
+                  </ul>
               </div>
-          </div>
-      </div>
 
-      <div class="container">
-          <div class="row align-items-center">
-              <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
-                  Copyright &copy; 2024 Diabetes Remission and Obesity Prevention – DROP organization Website. All Rights Reserved.
-              </div>
-          </div>
-      </div>
-  </div>
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>DROP Dashboard</h4>
+                    <ul>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">User Profiles</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Health Metrics Tracking</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Nutrition and Meal Planning Tools</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Educational Resources</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Community Support</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Appointment Scheduling</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Goal Setting and Tracking</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Integration with Research and Clinical Trials</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
+                    </ul>
+                </div>
 
-  <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+               
+
+                 
+
+                <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
+                    <h4>Contact Us</h4>
+                    <p style="text-transform: none;">
+                      Diabetes Remission And Obesity Prevention(DROP)<br>
+                      P.O. Box 1900-00502<br>
+                      Karen, Nairobi<br>
+                      Kenya<br>
+                        <strong>Phone:</strong> +254721496316<br>
+                        <strong>Email:</strong> info.dropke@gmail.com<br>
+                    </p>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
+                        <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
+                        <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
+                        <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-newsletter">
+                    <h4>Subscription</h4>
+                    <p style="text-transform: none;">Stay Informed, Stay Empowered: Subscribe to Our Newsletter!Join our community committed to diabetes remission and obesity prevention.</p>
+                    <p style="text-transform: none;">By subscribing to our newsletter, you'll receive regular updates on our latest programs, research findings, healthy living tips, and inspiring stories from individuals like you who are making positive changes in their lives.</p>
+                    <form action="" method="post">
+                        <input type="email" name="email"><input type="submit"  value="Subscribe">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
+                Copyright &copy; 2024 Diabetes Remission and Obesity Prevention – DROP organization Website. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
 </body>
 </html>

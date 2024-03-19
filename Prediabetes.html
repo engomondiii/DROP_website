@@ -64,19 +64,12 @@
 
        
 
-        /* Media query for laptops (screen width greater than or equal to 768px) */
-        @media only screen and (min-width: 768px) {
-            /* Show the navigation on laptops */
-            .navbar {
-                display: block;
-            }
-            
-        }
+      
     </style>
     
 </head>
 <body>
-    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #034183; color: #ffffff;">
+    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
         <div class="logo-container" style="display: flex; align-items: center;">
             <a href="#" class="logo" style="max-width: 180px; height: auto; margin-right: 10px;"><img src="./images/DropLogo.jpeg" alt="DROP Logo" style="width: 70px;height: 60px;"></a>
             <div class="header-text" style="font-family: 'Arial', sans-serif;">
@@ -85,28 +78,74 @@
         </div>
         <div class="header-right" style="display: flex; align-items: center;">
             <a href="donate.html" class="donate-link" style="color: #ffffff; text-decoration: none; margin-right: 20px; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold;">
-                <span>Donate</span>
-                <i class="fas fa-heart" style="font-size: 24px;"></i>
+                <!-- <span>Donate</span>
+                <i class="fas fa-heart" style="font-size: 24px;"></i> -->
             </a>
             <div class="hamburger-icon" >
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-        <nav class="navbar">
+        
+        <nav class="navbar" id="navbar" onclick="toggleColor()">
             <ul style="list-style-type: none; margin: 0; padding: 0;">
-                <li><a href="#home" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login/Sign Up</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Programmes</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Assessment Tools</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Research Centre</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
-                <li><a href="donate.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate</a></li>
-                <li><a href="careers.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
-                <li><a href="#contact" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
-                <li><a href="#faq" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
+                <li><a href="index.html" id="homeLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
+                <li><a href="signup.html" id="signupLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Sign Up</a></li>
+                <li><a href="Login.html" id="loginLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login</a></li>
+                <li><a href="donate.html" id="donateLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate Today</a></li>
+                <li><a href="#" id="blogsLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
+                <li><a href="careers.html" id="careerLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
+                <li><a href="#contact" id="contactLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
+                <li><a href="#faq" id="faqLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
             </ul>
         </nav>
+        
+        <script>
+        function toggleColor() {
+            const navbar = document.getElementById('navbar');
+            // Toggle the 'clicked' class on the navbar when it's clicked
+            navbar.classList.toggle('clicked');
+        }
+        </script>
+        
+        <style>
+        .navbar.clicked a {
+            color: black;
+        }
+    
+        @media only screen and (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .header-right {
+                margin-top: 10px; /* Adjust spacing */
+            }
+            .navbar {
+                display: none; /* Hide navbar on small screens */
+                flex-direction: column;
+                background-color: #333; /* Example background color */
+                position: absolute;
+                top: 100%; /* Position below the header */
+                left: 0;
+                width: 100%;
+            }
+            .navbar.clicked {
+                display: flex; /* Show navbar when clicked */
+            }
+            .navbar ul {
+                padding: 10px;
+            }
+            .navbar li {
+                margin-bottom: 10px; /* Adjust spacing */
+            }
+            .navbar a {
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+        </style>
     </header>
+    
     
     
     
@@ -178,6 +217,8 @@
                     <img src="./images/defination.webp" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
                 </span>
                 <h6 style="font-weight: bold; color: #034183;">Defination</h6>
+                
+                ..
                 <p style="text-transform: none;">Prediabetes represents a metabolic condition wherein blood glucose levels exceed normal ranges but do not yet reach the threshold for a diagnosis of type 2 diabetes mellitus. It serves as a transitional phase between normal glucose metabolism and diabetes, presenting a crucial opportunity for intervention to prevent or delay the onset of full-blown diabetes. Unlike diabetes, individuals with prediabetes still maintain the capacity for insulin production and glucose regulation, albeit with diminished efficiency. While often asymptomatic, prediabetes signifies an increased risk for developing diabetes, cardiovascular disease, and other metabolic complications. Distinguishing features between prediabetes and diabetes lie in the magnitude of blood glucose elevation, with prediabetes representing an intermediary stage characterized by impaired glucose tolerance or impaired fasting glucose. Understanding this distinction is pivotal for early detection, intervention, and the implementation of lifestyle modifications aimed at halting disease progression and promoting long-term health.</p>
             </div>
         
@@ -196,6 +237,8 @@
                     <img src="./images/symptoms1.jpg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
                 </span>
                 <h6 style="font-weight: bold; color: #034183;">Symptoms</h6>
+
+                ..
                 <p style="text-transform: none;"> Prediabetes often manifests without conspicuous signs, making it challenging to detect solely based on symptoms. Nevertheless, some individuals may experience subtle indicators that warrant attention. Increased thirst, stemming from the body's attempt to flush out excess glucose through urine, may signal elevated blood sugar levels. Concurrently, frequent urination occurs as the kidneys work overtime to expel surplus glucose from the bloodstream, leading to increased urine production. Fatigue, a pervasive sensation of tiredness and lethargy, may accompany prediabetes due to inefficient glucose utilization by cells for energy production. Additionally, blurred vision may ensue as fluctuating blood sugar levels affect the lens's ability to focus properly. While these symptoms may overlap with other conditions, their presence, particularly in conjunction, underscores the importance of monitoring blood glucose levels and seeking medical evaluation to assess metabolic health and mitigate future risks.</p>
             </div>
             </a>
@@ -243,9 +286,13 @@
                     <img src="./images/complications.png" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
                 </span>
                 <h6 style="font-weight: bold; color: #034183;">Complications</h6>
+
+                ..
                 <p style="text-transform: none;">Untreated prediabetes poses a myriad of health risks, underscoring the imperative for proactive management and intervention to avert the cascade of metabolic derangements and associated complications. Foremost among these risks is the heightened susceptibility to progressing to type 2 diabetes mellitus, whereby prolonged exposure to elevated blood glucose levels culminates in pancreatic beta-cell dysfunction and insulin resistance. Left unchecked, the transition from prediabetes to diabetes perpetuates a vicious cycle of hyperglycemia, further exacerbating metabolic dysregulation and increasing the risk of microvascular and macrovascular complications.
 
-                    Additionally, prediabetes significantly amplifies the risk of cardiovascular disease, encompassing a spectrum of conditions ranging from coronary artery disease to myocardial infarction and stroke. Elevated blood glucose levels promote endothelial dysfunction, oxidative stress, and inflammation, fostering the development and progression of atherosclerosis and thrombotic events. The confluence of dyslipidemia, hypertension, and insulin resistance further compounds cardiovascular risk, necessitating comprehensive risk stratification and cardiovascular risk reduction strategies.</p>                    
+                    Additionally, prediabetes significantly amplifies the risk of cardiovascular disease, encompassing a spectrum of conditions ranging from coronary artery disease to myocardial infarction and stroke. Elevated blood glucose levels promote endothelial dysfunction, oxidative stress, and inflammation, fostering the development and progression of atherosclerosis and thrombotic events. The confluence of dyslipidemia, hypertension, and insulin resistance further compounds cardiovascular risk, necessitating comprehensive risk stratification and cardiovascular risk reduction strategies.</p>  
+                    
+                    ..
             </div>
             
         </div>
@@ -262,7 +309,7 @@
                 <h6 style="font-weight: bold; color: #034183;">Prevention</h6>
                <p style="text-transform: none;"> Empowering individuals with prediabetes to enact meaningful lifestyle modifications serves as a cornerstone in forestalling the onset and progression of type 2 diabetes mellitus, epitomizing a paradigm shift towards proactive health promotion and chronic disease prevention. Central to this endeavor is the cultivation of a holistic approach encompassing dietary modifications, regular physical activity, weight management, smoking cessation, and prudent alcohol consumption.
 
-                Maintaining a healthy weight constitutes a linchpin in the prevention of type 2 diabetes, underpinning improvements in insulin sensitivity, glucose metabolism, and adipose tissue function. Adopting a balanced diet replete with nutrient-dense foods, including fruits, vegetables, whole grains, lean proteins, and healthy fats, fosters glycemic control, mitigates inflammation, and attenuates cardiovascular risk. Embracing dietary diversity, portion control, and mindful eating habits empowers individuals to cultivate sustainable dietary patterns conducive to metabolic health and overall well-being. Regular physical activity serves as a potent modulator of metabolic homeostasis, enhancing insulin sensitivity, promoting glucose uptake, and mitigating adiposity.</p>                    
+                Maintaining a healthy weight constitutes a linchpin in the prevention of type 2 diabetes, underpinning improvements in insulin sensitivity, glucose metabolism, and adipose tissue function. Adopting a balanced diet replete with nutrient-dense foods, including fruits, vegetables, whole grains, lean proteins, and healthy fats, fosters glycemic control, mitigates inflammation, and attenuates cardiovascular risk. Embracing dietary diversity, portion control, and mindful eating habits empowers individuals to cultivate sustainable dietary patterns conducive to metabolic health and overall well-being. Regular physical activity serves as a potent modulator of metabolic homeostasis, enhancing insulin sensitivity.</p>                    
             </div>
             
         </div>
@@ -557,75 +604,91 @@
 
 
 
-    <div class="footer">
-      <div class="footer-top">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-3 col-md-6 footer-links">
-                      <h4>DROP Organization</h4>
-                      <ul>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#about">Login/Sign Up</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Programmes</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Research Centre</a></li>
-                      </ul>
-                  </div>
+<div class="footer" style="width: 1380px;">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
 
-                  <div class="col-lg-3 col-md-6 footer-links">
-                      <h4>Useful Links</h4>
-                      <ul>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
-                      </ul>
-                  </div>
 
-                  <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
-                      <h4>Contact Us</h4>
-                      <p style="text-transform: none;">
-                        Diabetes Remission and Obesity Prevention(DROP)<br>
-                        P.O. Box 1900-00502<br>
-                        Karen, Nairobi<br>
-                        Kenya<br>
-                          <strong>Phone:</strong> +254721496316<br>
-                          <strong>Email:</strong> info.dropke@gmail.com<br>
-                      </p>
+                 
+              <div class="col-lg-3 col-md-6 footer-links">
+                  <h4>Useful Links</h4>
+                  <ul>
+                    <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
+                    <li><i class="ion-ios-arrow-forward"></i> <a href="signup.html">Sign Up</a></li>
+                    <li><i class="ion-ios-arrow-forward"></i> <a href="Login.html">Login</a></li>
 
-                      <div class="social-links">
-                          <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
-                          <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
-                          <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
-                          <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
-                          <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
-                      </div>
 
-                  </div>
-
-                  <div class="col-lg-3 col-md-6 footer-newsletter">
-                      <h4>Subscription</h4>
-                      <p style="text-transform: none;">Stay Informed, Stay Empowered: Subscribe to Our Newsletter!Join our community committed to diabetes remission and obesity prevention.</p>
-                      <p style="text-transform: none;">By subscribing to our newsletter, you'll receive regular updates on our latest programs, research findings, healthy living tips, and inspiring stories from individuals like you who are making positive changes in their lives.</p>
-                      <form action="" method="post">
-                          <input type="email" name="email"><input type="submit"  value="Subscribe">
-                      </form>
-                  </div>
-
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
+                  </ul>
               </div>
-          </div>
-      </div>
 
-      <div class="container">
-          <div class="row align-items-center">
-              <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
-                  Copyright &copy; 2024 Diabetes Remission and Obesity Prevention – DROP organization Website. All Rights Reserved.
-              </div>
-          </div>
-      </div>
-  </div>
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>DROP Dashboard</h4>
+                    <ul>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">User Profiles</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Health Metrics Tracking</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Nutrition and Meal Planning Tools</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Educational Resources</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Community Support</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Appointment Scheduling</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Goal Setting and Tracking</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Integration with Research and Clinical Trials</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
+                    </ul>
+                </div>
 
-  <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+               
+
+                 
+
+                <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
+                    <h4>Contact Us</h4>
+                    <p style="text-transform: none;">
+                      Diabetes Remission And Obesity Prevention(DROP)<br>
+                      P.O. Box 1900-00502<br>
+                      Karen, Nairobi<br>
+                      Kenya<br>
+                        <strong>Phone:</strong> +254721496316<br>
+                        <strong>Email:</strong> info.dropke@gmail.com<br>
+                    </p>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
+                        <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
+                        <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
+                        <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-newsletter">
+                    <h4>Subscription</h4>
+                    <p style="text-transform: none;">Stay Informed, Stay Empowered: Subscribe to Our Newsletter!Join our community committed to diabetes remission and obesity prevention.</p>
+                    <p style="text-transform: none;">By subscribing to our newsletter, you'll receive regular updates on our latest programs, research findings, healthy living tips, and inspiring stories from individuals like you who are making positive changes in their lives.</p>
+                    <form action="" method="post">
+                        <input type="email" name="email"><input type="submit"  value="Subscribe">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
+                Copyright &copy; 2024 Diabetes Remission and Obesity Prevention – DROP organization Website. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
 </body>
 </html>

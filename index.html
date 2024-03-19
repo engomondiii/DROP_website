@@ -64,19 +64,14 @@
 
        
 
-        /* Media query for laptops (screen width greater than or equal to 768px) */
-        @media only screen and (min-width: 768px) {
-            /* Show the navigation on laptops */
-            .navbar {
-                display: block;
-            }
+        
             
-        }
+        
     </style>
     
 </head>
 <body>
-    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #034183; color: #ffffff;">
+    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
         <div class="logo-container" style="display: flex; align-items: center;">
             <a href="#" class="logo" style="max-width: 180px; height: auto; margin-right: 10px;"><img src="./images/DropLogo.jpeg" alt="DROP Logo" style="width: 70px;height: 60px;"></a>
             <div class="header-text" style="font-family: 'Arial', sans-serif;">
@@ -85,28 +80,76 @@
         </div>
         <div class="header-right" style="display: flex; align-items: center;">
             <a href="donate.html" class="donate-link" style="color: #ffffff; text-decoration: none; margin-right: 20px; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold;">
-                <span>Donate</span>
-                <i class="fas fa-heart" style="font-size: 24px;"></i>
+                <!-- <span>Donate</span>
+                <i class="fas fa-heart" style="font-size: 24px;"></i> -->
             </a>
             <div class="hamburger-icon" >
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-        <nav class="navbar">
+        
+        <nav class="navbar" id="navbar" onclick="toggleColor()">
             <ul style="list-style-type: none; margin: 0; padding: 0;">
-                <li><a href="#home" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login/Sign Up</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Programmes</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Assessment Tools</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Research Centre</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
-                <li><a href="donate.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate</a></li>
-                <li><a href="careers.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
-                <li><a href="#contact" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
-                <li><a href="#faq" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
+                <li><a href="index.html" id="homeLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
+                <li><a href="signup.html" id="signupLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Sign Up</a></li>
+                <li><a href="Login.html" id="loginLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login</a></li>
+                <li><a href="donate.html" id="donateLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate Today</a></li>
+                <li><a href="#" id="blogsLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
+                <li><a href="careers.html" id="careerLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
+                <li><a href="#contact" id="contactLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
+                <li><a href="#faq" id="faqLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
             </ul>
         </nav>
+        
+        <script>
+        function toggleColor() {
+            const navbar = document.getElementById('navbar');
+            // Toggle the 'clicked' class on the navbar when it's clicked
+            navbar.classList.toggle('clicked');
+        }
+        </script>
+        
+        <style>
+        .navbar.clicked a {
+            color: black;
+        }
+    
+        @media only screen and (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .header-right {
+                margin-top: 10px; /* Adjust spacing */
+            }
+            .navbar {
+                display: none; /* Hide navbar on small screens */
+                flex-direction: column;
+                background-color: #333; /* Example background color */
+                position: absolute;
+                top: 100%; /* Position below the header */
+                left: 0;
+                width: 100%;
+            }
+            .navbar.clicked {
+                display: flex; /* Show navbar when clicked */
+            }
+            .navbar ul {
+                padding: 10px;
+            }
+            .navbar li {
+                margin-bottom: 10px; /* Adjust spacing */
+            }
+            .navbar a {
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+        </style>
     </header>
+    
+
+    
     
     
     
@@ -130,13 +173,16 @@
     function closePopup() {
         document.getElementById('donationPopup').style.display = 'none';
     }
+
+
+    
 </script>
     
 
     
 
   <section id="home" class="home">
-      <h1 style="font-weight: bolder; font-size: 35px;">Diabetes Remission and Obesity Prevention</h1>
+      <h1 style="font-weight: bold; font-size: 30px;">Diabetes Remission and Obesity Prevention</h1>
       <h2 style="text-transform: none; font-style: italic; font-size:18px ;">Empowering Lives Through Diabetes Management and Healthy Lifestyle Advocacy</h2>
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
@@ -162,13 +208,13 @@
 
             <div class="section-head col-sm-12" id="service">
                 <h1>Empowering Healthier Communities</h1>
-                <p style="text-transform: none;">At DROP, we are steadfast in our commitment to combat Diabetes and Obesity through education, intervention, and empowerment.Our mission is rooted in fostering a profound understanding of these chronic conditions and  providing effective strategies for their management.The DROP Website stands as a beacon of knowledge, serving as a comprehensive resource hub dedicated to promoting healthier lifestyles and preventingthe onset and progression of Diabetes and Obesity.</p>
+                <p style="text-transform: none; font-size: 17px;">At DROP, we are steadfast in our commitment to combat Diabetes and Obesity through education, intervention, and empowerment.Our mission is rooted in fostering a profound understanding of these chronic conditions and  providing effective strategies for their management.The DROP Website stands as a beacon of knowledge, serving as a comprehensive resource hub dedicated to promoting healthier lifestyles and preventingthe onset and progression of Diabetes and Obesity.</p>
               </div>
             
       <div class="row">
         <div class="section-head col-sm-12" id="service">
             <h1>Comprehensive Overview</h1>
-            <p style="text-transform: none;">Our Home Page serves as a vibrant canvas, showcasing the breadth and depth of our organization's efforts in combating Diabetes and Obesity. Through engaging visuals, informative articles, and inspiring narratives, we aim to provide visitors with a comprehensive understanding of our initiatives. As you explore our Home Page, remember that each click, each read, and each interaction contributes to a collective vision of health, vitality, and well-being. Together, we can transform lives and build a brighter, healthier future for generations to come.</p>
+            <p style="text-transform: none; font-size: 17px;">Our Home Page serves as a vibrant canvas, showcasing the breadth and depth of our organization's efforts in combating Diabetes and Obesity. Through engaging visuals, informative articles, and inspiring narratives, we aim to provide visitors with a comprehensive understanding of our initiatives. As you explore our Home Page, remember that each click, each read, and each interaction contributes to a collective vision of health, vitality, and well-being. Together, we can transform lives and build a brighter, healthier future for generations to come.</p>
           </div>
         <div class="col-lg-4 col-sm-6">
             <a href="Dprevention.html" style="text-decoration: none; color: inherit;">
@@ -177,7 +223,7 @@
                         <i class="fas fa-plus-circle" style="color: #034183; font-size: 54px;"></i>
                     </span>
                     
-                    <h6 style="font-weight: bold; color: #034183;">Diabetes Prevention</h6>
+                    <h6 style="font-weight: bold; color: #034183;" class="Diabetes Prevention">Diabetes Prevention</h6>
                     <p style="text-transform: none;"></p>
                 </div>
             </a>
@@ -192,7 +238,7 @@
                 <i class="fas fa-user-md" style="color: #034183; font-size: 54px;"></i>
             </span>
             
-            <h6 style="font-weight: bold; color: #034183;">Prediabetes</h6>
+            <h6 style="font-weight: bold; color: #034183;" class="Prediabetes">Prediabetes</h6>
             <p style="text-transform: none;"></p>
           </div>
           </a>
@@ -206,7 +252,7 @@
                 <i class="fas fa-notes-medical" style="color: #034183; font-size: 54px;"></i>
             </span>
             
-            <h6 style="font-weight: bold; color: #034183;">Newly Diagnosed</h6>
+            <h6 style="font-weight: bold; color: #034183;" class="Newly Diagnosed">Newly Diagnosed</h6>
             <p style="text-transform: none;"></p>
           </div>
             </a>
@@ -220,7 +266,7 @@
                     <i class="fas fa-book-medical" style="color: #034183; font-size: 54px;"></i>
                 </span>
                 
-              <h6 style="font-weight: bold; color: #034183;">Types Of Diabetes</h6>
+              <h6 style="font-weight: bold; color: #034183;" class="Types of Diabetes">Types Of Diabetes</h6>
               <p style="text-transform: none;"></p>
             </div>
             </a>
@@ -234,7 +280,7 @@
                     <i class="fas fa-wheelchair" style="color: #034183; font-size: 54px;"></i>
                 </span>
                 
-              <h6 style="font-weight: bold; color: #034183;">Life With Diabetes</h6>
+              <h6 style="font-weight: bold; color: #034183;" class="LIfe with Diabetes">Life With Diabetes</h6>
               <p style="text-transform: none;"></p>
             </div>
             </a>
@@ -248,7 +294,7 @@
                     <i class="fas fa-exclamation-triangle" style="color: #034183; font-size: 54px;"></i>
                 </span>
                 
-              <h6 style="font-weight: bold; color: #034183;">Diabetes Complications</h6>
+              <h6 style="font-weight: bold; color: #034183;" class="Diabetes Complications">Diabetes Complications</h6>
               <p style="text-transform: none;"></p>
             </div>
             </a>
@@ -289,7 +335,7 @@
 
 
         <div class="col-lg-4 col-sm-6">
-            <a href="your_destination_page.html" style="text-decoration: none; color: inherit;">
+            <a href="#" style="text-decoration: none; color: inherit;">
 
             <div class="item"> 
                 <span class="icon feature_box_col_one">
@@ -297,10 +343,17 @@
                 </span>
                 <h6 style="font-weight: bold; color: #034183;">Annual Report</h6>
                 <p style="text-transform: none;">Discover the heart of our efforts in combating diabetes and fostering public health through our latest Annual Report. Dive into a comprehensive review of our initiatives, program impact, financial transparency, and future endeavors. Delve deeper into our commitment to the community and explore the tangible results of our collective efforts. For a detailed understanding of our mission-driven journey, visit the Annual Report section and embark on a voyage of insight and inspiration.</p>
+
+                ..........
+                ..........
                     
-                <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+                <a href="#" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+                ..........
             </div>
+            ............
             </a>
+
+
         </div>
 
         
@@ -314,6 +367,7 @@
                 <h6 style="font-weight: bold; color: #034183;">Understanding Diabetes</h6>
                 <p style="text-transform: none;">Dive into our curated collection of resources, featuring detailed insights into Diabetes as a disease and effective strategies for its management. Through compelling write-ups, informative infographics, and real-life stories, we shed light on the complexities of Diabetes and empower individuals to take charge of their health.Welcome to the Understanding Diabetes section of the DROP organization's website</p>
                 <a href="Understanding.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+                ..........
             </div>
             </a>
         </div>
@@ -341,7 +395,11 @@
             </span>
             <h6 style="font-weight: bold; color: #034183;">Nourishing Nutrition</h6>
             <p style="text-transform: none;">Delve into the world of nutrition and discover the profound impact of dietary choices on Diabetes and Obesity. Our Nutrition segment presents evidence-based insights, meal planning resources, and expert advice to help individuals make informed decisions about their diet and lifestyle.</p>
+
+            ..........
             <a href="Nourishing.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+
+            ..........
           </div>
           </a>
         </div>
@@ -380,7 +438,7 @@
               <div class="row">
                 <div class="section-head-1 col-sm-12" style="text-align: center;">
                   <h4 style="margin-top: -5rem;" id="portfolio"><span>Are you at risk?</span></h4>
-                  <p style="text-transform: none;">
+                  <p style="text-transform: none; font-size: 17px;">
                     Learning your risk is the first step in taking action against type 2 diabetes. Take our 60-Second Type 2 Diabetes Risk Test today to receive actionable next steps in your health journey.
                   </p>
                 </div>
@@ -629,24 +687,37 @@
         <div class="section-head-1 col-sm-12" style="text-align: center;">
           <h4 style="margin-top: -5rem;" id="portfolio"><span>Our</span> Projects</h4>
           
-          <p style="text-transform: none;">At Diabetes Remission And Obesity Prevention (DROP), we're dedicated to fostering healthier communities through a multifaceted approach. Our projects encompass school health programs, innovative research initiatives, and extensive community outreach efforts. Through engaging sessions, ethical research, and collaborative partnerships, we empower individuals to embrace healthier lifestyles, combat Diabetes and Obesity, and strive towards a brighter, healthier future. See Our Latest Projects.</p>
+          <p style="text-transform: none; font-size: 17px;">At Diabetes Remission And Obesity Prevention (DROP), we're dedicated to fostering healthier communities through a multifaceted approach. Our projects encompass school health programs, innovative research initiatives, and extensive community outreach efforts. Through engaging sessions, ethical research, and collaborative partnerships, we empower individuals to embrace healthier lifestyles, combat Diabetes and Obesity, and strive towards a brighter, healthier future. See Our Latest Projects.</p>
         </div>
         
         <div class="col-lg-4 col-sm-6">
           
           <div class="item"> <span class="icon feature_box_col_four"><i class="fa fa-database"></i></span>
             <h6 style="font-weight: bold; color: #034183;">DROP School Programme Implementation</h6>
+
+
+            ...
             
             <p style="text-transform: none;">DROP successfully implemented a health initiative in local schools targeting Adolescent Boys and Young Men (ABYM) and Adolescent Girls and Young Women (AGYW). The initiative aimed to promote an active lifestyle through engaging physical activities and nutrition education integrated into the school curriculum. Certified trainers led activities emphasizing the joy of movement and healthy habits. The program resulted in increased physical activity levels, improved attitudes toward health, and reduced childhood obesity rates.<br><br><br></p>
+
+            ........
             <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+            ........
           </div>
+          
         </div>
         
         <div class="col-lg-4 col-sm-6">
           <div class="item"> <span class="icon feature_box_col_five"><i class="fa fa-upload"></i></span>
             <h6 style="font-weight: bold; color: #034183;">DROP Sports and Nutrition Workshops</h6>
+
+            ...
             <p style="text-transform: none;">DROP organized sports and nutrition workshops for Adolescent Boys and Young Men (ABYM) and Adolescent Girls and Young Women (AGYW). The aim was to educate and empower them to make informed choices about physical activity and nutrition. The workshops included interactive sessions, practical demonstrations, and educational materials to emphasize the importance of regular physical activity and healthy eating habits. Participants reported increased awareness and made healthier lifestyle choices within their communities.<br><br><br></p>
+
+            .....
             <a href="your_more_about_page.html" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Click Here To Find More!</a>
+
+            .....
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
@@ -667,18 +738,18 @@
 
 <div class="communicate">
     <h3 style="font-weight: bolder;">Ready to get in touch with us?</h3>
-    <p style="font-weight: bold; text-transform: none;">For any inquiries, partnership opportunities, or to learn more about our initiatives, please visit our Contact Page. Our team is dedicated to providing you with the information and support you need. We look forward to hearing from you and working together towards a healthier future!</p>
+    <p style="font-weight: bold; text-transform: none; font-size: 17px;">For any inquiries, partnership opportunities, or to learn more about our initiatives, please visit our Contact Page. Our team is dedicated to providing you with the information and support you need. We look forward to hearing from you and working together towards a healthier future!</p>
     <a href="#contact"><button class="btn">Contact Now</button></a>
 </div>
 
 
 
 
-<div class="testimonials mt-100">
+<!-- <div class="testimonials mt-100">
     <div class="container">
         <div class="section-header" style="text-align: center;">
             <h2 style="margin-top: -15rem;">Community Voices</h2>
-            <p style="font-size: 2rem;">
+            <p style="font-size: 2rem; font-size: 17px;">
                 Explore Our Community Voices: Hear the Impact of DROP Organization
             </p>
         </div>
@@ -717,6 +788,8 @@
                 <div class="testimonial-text">
                     <h3>Faith Mungai</h3>
                     <h4></h4>
+
+                    .........
                     <p style="text-transform: none;">
                         As a parent, I'm thrilled with the programs DROP offers at my child's school. They've transformed physical education into an engaging experience that my kids look forward to every day. I've seen firsthand the positive changes in their attitudes toward health and fitness!
 
@@ -730,6 +803,8 @@
                 <div class="testimonial-text">
                     <h3>Ben Rodgers</h3>
                     <h4></h4>
+
+                    ......
                     <p style="text-transform: none;">
                         DROP's community fitness events are the highlight of my week! Not only are they fun and inclusive, but they've also motivated me to prioritize my health. Being part of a supportive community that values wellness has been incredibly rewarding. Thank you, DROP!
 
@@ -751,7 +826,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
@@ -762,7 +837,7 @@
             <div class="section-head-1 col-sm-12" style="text-align: center;">
                 <h4 style="margin-top: -5rem;" id="portfolio"><span>Calendar </span> Of Events</h4>
 
-                <p style="text-transform: none;">
+                <p style="text-transform: none; font-size: 17px;">
                     Explore the dynamic calendar of events hosted by DROP, where health advocacy meets community engagement. From educational workshops and awareness campaigns to fundraising galas and wellness drives, our events are designed to empower individuals and communities in the fight against diabetes. Join us as we strive to raise awareness, promote healthy living, and support those affected by diabetes on their journey towards better health and well-being. Stay informed, get involved, and make a difference with DROP's vibrant calendar of events.
                 </p>
             </div>
@@ -797,6 +872,8 @@
                 <div class="item">
                     <h6 style="font-weight: bold; color: #034183;">Healthy Recipes for Diabetics</h6>
                     <p><strong> <i class="fa fa-calendar" style="color: #034183;"></i> Date:</strong> May 5, 2024<br><strong> <i class="fa fa-clock" style="color: #034183;"></i>Time:</strong> 11:00 AM - 1:00 PM<br><strong><i class="fa fa-map-marker" style="color: #034183;"></i>Location:</strong> DROP Center Kitchen</p>
+                    
+                    ......
                     <a href="#" style="display: block; color: #034183; font-weight: bold; margin-top: 10px; font-size: 13px; text-decoration: underline;">Learn More</a>
                 </div>
                 </a>
@@ -992,27 +1069,43 @@
       <div class="footer-top">
           <div class="container">
               <div class="row">
+
+
+                   
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="signup.html">Sign Up</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="Login.html">Login</a></li>
+
+
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
                   <div class="col-lg-3 col-md-6 footer-links">
-                      <h4>DROP Organization</h4>
+                      <h4>DROP Dashboard</h4>
                       <ul>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#about">Login/Sign Up</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Programmes</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">User Profiles</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Health Metrics Tracking</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Nutrition and Meal Planning Tools</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Educational Resources</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Community Support</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Appointment Scheduling</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Goal Setting and Tracking</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Integration with Research and Clinical Trials</a></li>
                           <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Research Centre</a></li>
                       </ul>
                   </div>
 
-                  <div class="col-lg-3 col-md-6 footer-links">
-                      <h4>Useful Links</h4>
-                      <ul>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
-                      </ul>
-                  </div>
+                 
+
+                   
 
                   <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
                       <h4>Contact Us</h4>

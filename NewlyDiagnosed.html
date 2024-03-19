@@ -64,19 +64,12 @@
 
        
 
-        /* Media query for laptops (screen width greater than or equal to 768px) */
-        @media only screen and (min-width: 768px) {
-            /* Show the navigation on laptops */
-            .navbar {
-                display: block;
-            }
-            
-        }
+       
     </style>
     
 </head>
 <body>
-    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #034183; color: #ffffff;">
+    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
         <div class="logo-container" style="display: flex; align-items: center;">
             <a href="#" class="logo" style="max-width: 180px; height: auto; margin-right: 10px;"><img src="./images/DropLogo.jpeg" alt="DROP Logo" style="width: 70px;height: 60px;"></a>
             <div class="header-text" style="font-family: 'Arial', sans-serif;">
@@ -85,28 +78,74 @@
         </div>
         <div class="header-right" style="display: flex; align-items: center;">
             <a href="donate.html" class="donate-link" style="color: #ffffff; text-decoration: none; margin-right: 20px; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold;">
-                <span>Donate</span>
-                <i class="fas fa-heart" style="font-size: 24px;"></i>
+                <!-- <span>Donate</span>
+                <i class="fas fa-heart" style="font-size: 24px;"></i> -->
             </a>
             <div class="hamburger-icon" >
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-        <nav class="navbar">
+        
+        <nav class="navbar" id="navbar" onclick="toggleColor()">
             <ul style="list-style-type: none; margin: 0; padding: 0;">
-                <li><a href="#home" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login/Sign Up</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Programmes</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Assessment Tools</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Research Centre</a></li>
-                <li><a href="#" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
-                <li><a href="donate.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate</a></li>
-                <li><a href="careers.html" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
-                <li><a href="#contact" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
-                <li><a href="#faq" style="color: #ffffff; text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
+                <li><a href="index.html" id="homeLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Home</a></li>
+                <li><a href="signup.html" id="signupLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Sign Up</a></li>
+                <li><a href="Login.html" id="loginLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Login</a></li>
+                <li><a href="donate.html" id="donateLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Donate Today</a></li>
+                <li><a href="#" id="blogsLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Blogs</a></li>
+                <li><a href="careers.html" id="careerLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Career</a></li>
+                <li><a href="#contact" id="contactLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">Contact</a></li>
+                <li><a href="#faq" id="faqLink" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 16px;">FAQ</a></li>
             </ul>
         </nav>
+        
+        <script>
+        function toggleColor() {
+            const navbar = document.getElementById('navbar');
+            // Toggle the 'clicked' class on the navbar when it's clicked
+            navbar.classList.toggle('clicked');
+        }
+        </script>
+        
+        <style>
+        .navbar.clicked a {
+            color: black;
+        }
+    
+        @media only screen and (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .header-right {
+                margin-top: 10px; /* Adjust spacing */
+            }
+            .navbar {
+                display: none; /* Hide navbar on small screens */
+                flex-direction: column;
+                background-color: #333; /* Example background color */
+                position: absolute;
+                top: 100%; /* Position below the header */
+                left: 0;
+                width: 100%;
+            }
+            .navbar.clicked {
+                display: flex; /* Show navbar when clicked */
+            }
+            .navbar ul {
+                padding: 10px;
+            }
+            .navbar li {
+                margin-bottom: 10px; /* Adjust spacing */
+            }
+            .navbar a {
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+        </style>
     </header>
+    
     
     
     
@@ -217,11 +256,19 @@
                     <img src="./images/lifestyle1.jpg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
                 </span>
                 <h6 style="font-weight: bold; color: #034183;">Lifestyle Changes</h6>
+                ..
                <p style="text-transform: none;">Lifestyle Changes: Managing diabetes effectively often involves adopting positive lifestyle adjustments that prioritize health and well-being. Nutrition plays a fundamental role, emphasizing a balanced diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats while minimizing processed foods and refined carbohydrates. Collaborating with a registered dietitian can aid in crafting personalized meal plans tailored to individual needs, fostering stable blood sugar levels and overall nutritional health.
 
                 Physical activity stands as a cornerstone of diabetes management, promoting improved insulin sensitivity, weight management, and cardiovascular health. Striving for at least 150 minutes of moderate-intensity aerobic exercise per week, such as brisk walking or cycling, alongside regular strength training exercises, enhances muscle strength and overall fitness. Embracing activities that resonate with personal interests and capabilities can sustain motivation and foster long-term adherence to an active lifestyle.
                 
-                Furthermore, stress management and prioritizing adequate sleep are integral components of diabetes care. Chronic stress can elevate blood sugar levels, necessitating the adoption of stress-reduction techniques such as deep breathing exercises, meditation, and mindfulness practices. Establishing consistent sleep patterns, aiming for 7-9 hours of restful sleep each night, and creating a soothing bedtime routine facilitate optimal sleep hygiene and support overall health and diabetes management. By embracing these lifestyle modifications, individuals with diabetes can proactively enhance their well-being, mitigate the risk of complications, and foster a fulfilling and balanced life.</p>
+                Furthermore, stress management and prioritizing adequate sleep are integral components of diabetes care. Chronic stress can elevate blood sugar levels, necessitating the adoption of stress-reduction techniques such as deep breathing exercises, meditation, and mindfulness practices. Establishing consistent sleep patterns, aiming for 7-9 hours of restful sleep each night, and creating a soothing bedtime routine facilitate optimal sleep hygiene and support overall health and diabetes management. By embracing these lifestyle modifications, individuals with diabetes can proactively enhance their well-being, mitigate the risk of complications, and foster a fulfilling and balanced life. Remember, consistency and commitment are key to achieving long-term success in managing diabetes and maintaining overall health.
+
+
+
+
+
+            </p>
+            ..
             </div>
             
         </div>
@@ -242,7 +289,8 @@
                 
                 For individuals who require additional blood sugar control beyond oral medications, other injectable medications may be prescribed. These include GLP-1 receptor agonists and amylin analogs, which work to stimulate insulin production, suppress glucagon secretion, and promote satiety, leading to improved blood sugar control and potential weight loss.
                 
-                Ultimately, the selection of medication and treatment modalities depends on various factors, including the type and severity of diabetes, individual health goals, and potential side effects. Working closely with healthcare providers to develop a personalized treatment plan that addresses individual needs and preferences is essential for achieving optimal blood sugar control and preventing long-term complications associated with diabetes.</p>
+                Ultimately, the selection of medication and treatment modalities depends on various factors, including the type and severity of diabetes, individual health goals, and potential side effects. Working closely with healthcare providers to develop a personalized treatment plan that addresses individual needs and preferences is essential for achieving optimal blood sugar control and preventing long-term complications.</p>
+                .
             </div>
             
         </div>
@@ -260,9 +308,19 @@
                     <img src="./images/glucose.jpg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
                 </span>
                 <h6 style="font-weight: bold; color: #034183;">Blood Glucose Monitoring</h6>
+                .
                <p style="text-transform: none;">Blood Glucose Monitoring: For effective diabetes management, individuals rely on two primary methods: glucometers and continuous glucose monitors (CGMs). Glucometers, portable devices, analyze blood glucose levels using a small drop of blood from a finger prick. Users must maintain a clean testing area, follow device instructions meticulously, and record readings consistently to facilitate treatment adjustments. Continuous glucose monitors (CGMs), on the other hand, offer real-time blood glucose data by measuring glucose levels in interstitial fluid beneath the skin. These monitors provide comprehensive insights into glucose trends, enabling users to set personalized alerts for timely intervention in cases of hypo- or hyperglycemia.
 
-                Interpreting blood sugar readings is critical in diabetes management. Users establish target ranges with healthcare providers and learn to recognize patterns influenced by diet, physical activity, and stress. Adjustments to lifestyle and treatment plans are made accordingly. For instance, consistent high post-meal readings may prompt dietary or medication modifications, while potential hypoglycemic events during exercise may necessitate carbohydrate intake. By mastering blood glucose monitoring techniques and interpreting readings adeptly, individuals can proactively manage their diabetes and enhance overall well-being, underscoring the importance of regular communication with healthcare professionals for ongoing support and guidance.</p>
+                Interpreting blood sugar readings is critical in diabetes management. Users establish target ranges with healthcare providers and learn to recognize patterns influenced by diet, physical activity, and stress. Adjustments to lifestyle and treatment plans are made accordingly. For instance, consistent high post-meal readings may prompt dietary or medication modifications, while potential hypoglycemic events during exercise may necessitate carbohydrate intake. By mastering blood glucose monitoring techniques and interpreting readings adeptly, individuals can proactively manage their diabetes and enhance overall well-being, underscoring the importance of regular communication with healthcare professionals for ongoing support and guidance. Regular monitoring of blood glucose levels empowers individuals to make informed decisions about their health, ensuring timely intervention and optimized diabetes management.
+
+                Remember, staying proactive and engaged in your diabetes care journey is key to achieving optimal health outcomes and maintaining a fulfilling lifestyle. Prioritize self-care and embrace a positive mindset, knowing that each step you take towards managing your diabetes brings you closer to a healthier and happier life.
+
+
+
+
+
+            </p>
+            .
             </div>
             
         </div>
@@ -283,7 +341,10 @@
                 
                 Incorporating healthier food choices into daily meals is essential for supporting overall well-being. Emphasizing whole, nutrient-dense foods such as fruits, vegetables, lean proteins, and whole grains provides essential nutrients while minimizing added sugars, saturated fats, and processed foods. Encouraging variety and flexibility in meal plans ensures a diverse and enjoyable eating experience.
                 
-                By providing resources and tools for meal planning, carbohydrate counting, portion control, and healthier food choices, individuals with diabetes can enhance their dietary habits, optimize blood sugar management, and improve long-term health outcomes. Ongoing education and support from healthcare professionals and registered dietitians are integral components of successful diabetes management, fostering empowerment and confidence in making sustainable dietary changes.</p>
+                By providing resources and tools for meal planning, carbohydrate counting, portion control, and healthier food choices, individuals with diabetes can enhance their dietary habits, optimize blood sugar management, and improve long-term health outcomes. Ongoing education and support from healthcare professionals and registered dietitians are integral components of successful diabetes management, fostering empowerment and confidence in making sustainable dietary changes. Building a supportive network and seeking guidance from healthcare professionals can provide invaluable assistance on the journey to better diabetes management.
+
+                Remember, every small step towards healthier eating habits contributes to improved well-being.</p>
+                
             </div>
             
         </div>
@@ -306,7 +367,9 @@
                 
                 Staying active safely involves considerations such as monitoring blood sugar levels before and after exercise, staying hydrated, wearing appropriate footwear, and gradually increasing activity levels to prevent injury. Individuals should also be mindful of any underlying health conditions and consult with healthcare professionals before starting a new exercise program.
                 
-                By offering clear guidelines and practical tips for incorporating physical activity into daily life, individuals with diabetes can experience the benefits of improved blood sugar control, weight management, cardiovascular health, and overall well-being. Regular physical activity is a cornerstone of diabetes management and empowers individuals to take an active role in their health journey.</p>
+                By offering clear guidelines and practical tips for incorporating physical activity into daily life, individuals with diabetes can experience the benefits of improved blood sugar control, weight management, cardiovascular health, and overall well-being. Regular physical activity is a cornerstone of diabetes management and empowers individuals to take an active role in their health journey. Consistency and commitment to physical activity are key to unlocking the full potential of its benefits. Every step, every stretch, and every movement contributes to better health and well-being in the journey with diabetes. Remember, progress comes with persistence, and every effort counts towards a healthier, happier life.
+
+                Make physical activity an enjoyable part of your day by exploring various activities and finding what brings you joy and fulfillment. Whether it's dancing to your favorite tunes, taking a nature walk, or playing a sport with friends, find activities that resonate with your interests.</p>
             </div>
             
         </div>
@@ -321,6 +384,7 @@
                     <img src="./images/monitor1.jpg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
                 </span>
                 <h6 style="font-weight: bold; color: #034183;">Monitoring and Managing Complications</h6>
+                .
                <p style="text-transform: none;">Diabetes can lead to various complications that affect different parts of the body, including neuropathy, retinopathy, nephropathy, and cardiovascular disease. Neuropathy refers to nerve damage, which can result in numbness, tingling, or pain, particularly in the extremities. Retinopathy affects the eyes, potentially leading to vision impairment or blindness. Nephropathy involves kidney damage, which can progress to kidney failure if left untreated. Cardiovascular disease, including heart attacks and strokes, is more prevalent among individuals with diabetes.
 
                 Preventing, monitoring, and managing these complications are essential components of diabetes care. Prevention strategies include maintaining optimal blood sugar levels through medication adherence, regular exercise, and a healthy diet. Monitoring involves regular check-ups with healthcare providers, including eye exams, kidney function tests, and cardiovascular assessments. Early detection allows for prompt intervention and may help prevent the progression of complications.
@@ -328,6 +392,7 @@
                 Managing complications often requires a multifaceted approach that addresses both medical and lifestyle factors. Treatment modalities may include medications to control blood pressure, cholesterol, and blood sugar levels, as well as interventions such as laser therapy for retinopathy or dialysis for kidney failure. Lifestyle modifications, such as smoking cessation, weight management, and adherence to medication regimens, are also crucial for managing complications and improving overall health outcomes.
                 
                 Education and support are key components of managing complications effectively. Providing individuals with diabetes with comprehensive information about potential complications, preventive measures, and treatment options empowers them to take an active role in their healthcare. Encouraging regular communication with healthcare providers and promoting adherence to recommended screenings and treatments help individuals monitor and manage complications, ultimately enhancing their quality of life and reducing the risk of long-term complications associated with diabetes.</p>
+                
             </div>
         
         </div>
@@ -340,6 +405,8 @@
                     <img src="./images/support1.jpg" alt="Understanding Diabetes Image" style="max-width: 90%; height: auto;">
                 </span>
                 <h6 style="font-weight: bold; color: #034183;">Support Resources</h6>
+                .
+                
                <p style="text-transform: none;">The DROP organization is committed to providing comprehensive support resources tailored to individuals living with diabetes. Through our platform, individuals can access a variety of avenues for support, including dedicated support groups, online forums, and educational programs.
 
                 Our support groups offer a nurturing environment where individuals can connect with others facing similar challenges associated with diabetes. These groups serve as valuable spaces for sharing experiences, offering mutual support, and exchanging practical tips for managing the condition effectively. Whether in-person or virtual, our support groups foster a sense of community and understanding among participants.
@@ -348,7 +415,9 @@
                 
                 Furthermore, our educational programs offer valuable resources and tools to empower individuals in their diabetes journey. These programs cover various topics, including nutrition, exercise, medication management, and emotional well-being. Through workshops, webinars, and informational materials, individuals can enhance their knowledge, develop practical skills, and gain confidence in managing their diabetes effectively.
                 
-                By providing access to support groups, online forums, educational programs, and other resources, the DROP organization aims to create a supportive ecosystem where individuals can connect, learn, and thrive in their diabetes management efforts. We are dedicated to fostering a sense of empowerment, community, and resilience among individuals living with diabetes, ensuring that they have the resources and support they need to lead healthy and fulfilling lives.</p>
+                By providing access to support groups, online forums, educational programs, and other resources, the DROP organization aims to create a supportive ecosystem where individuals can connect, learn, and thrive in their diabetes management efforts. We are dedicated to fostering a sense of empowerment, community, and resilience among individuals living with diabetes, ensuring that they have the resources and support they need to lead healthy and fulfilling lives. Together, let's make strides towards a brighter, healthier future for all those affected by diabetes.</p>
+                .
+                
             </div>
         
         </div>
@@ -638,75 +707,91 @@
 
 
 
-    <div class="footer">
-      <div class="footer-top">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-3 col-md-6 footer-links">
-                      <h4>DROP Organization</h4>
-                      <ul>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#about">Login/Sign Up</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Programmes</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Research Centre</a></li>
-                      </ul>
-                  </div>
+<div class="footer" style="width: 1380px;">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
 
-                  <div class="col-lg-3 col-md-6 footer-links">
-                      <h4>Useful Links</h4>
-                      <ul>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
-                      </ul>
-                  </div>
 
-                  <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
-                      <h4>Contact Us</h4>
-                      <p style="text-transform: none;">
-                        Diabetes Remission and Obesity Prevention(DROP)<br>
-                        P.O. Box 1900-00502<br>
-                        Karen, Nairobi<br>
-                        Kenya<br>
-                          <strong>Phone:</strong> +254721496316<br>
-                          <strong>Email:</strong> info.dropke@gmail.com<br>
-                      </p>
+                 
+              <div class="col-lg-3 col-md-6 footer-links">
+                  <h4>Useful Links</h4>
+                  <ul>
+                    <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
+                    <li><i class="ion-ios-arrow-forward"></i> <a href="signup.html">Sign Up</a></li>
+                    <li><i class="ion-ios-arrow-forward"></i> <a href="Login.html">Login</a></li>
 
-                      <div class="social-links">
-                          <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
-                          <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
-                          <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
-                          <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
-                          <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
-                      </div>
 
-                  </div>
-
-                  <div class="col-lg-3 col-md-6 footer-newsletter">
-                      <h4>Subscription</h4>
-                      <p style="text-transform: none;">Stay Informed, Stay Empowered: Subscribe to Our Newsletter!Join our community committed to diabetes remission and obesity prevention.</p>
-                      <p style="text-transform: none;">By subscribing to our newsletter, you'll receive regular updates on our latest programs, research findings, healthy living tips, and inspiring stories from individuals like you who are making positive changes in their lives.</p>
-                      <form action="" method="post">
-                          <input type="email" name="email"><input type="submit"  value="Subscribe">
-                      </form>
-                  </div>
-
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
+                  </ul>
               </div>
-          </div>
-      </div>
 
-      <div class="container">
-          <div class="row align-items-center">
-              <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
-                  Copyright &copy; 2024 Diabetes Remission and Obesity Prevention – DROP organization Website. All Rights Reserved.
-              </div>
-          </div>
-      </div>
-  </div>
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>DROP Dashboard</h4>
+                    <ul>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">User Profiles</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Health Metrics Tracking</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Nutrition and Meal Planning Tools</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Educational Resources</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Community Support</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Appointment Scheduling</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Goal Setting and Tracking</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Integration with Research and Clinical Trials</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Assessment Tools</a></li>
+                    </ul>
+                </div>
 
-  <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+               
+
+                 
+
+                <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
+                    <h4>Contact Us</h4>
+                    <p style="text-transform: none;">
+                      Diabetes Remission And Obesity Prevention(DROP)<br>
+                      P.O. Box 1900-00502<br>
+                      Karen, Nairobi<br>
+                      Kenya<br>
+                        <strong>Phone:</strong> +254721496316<br>
+                        <strong>Email:</strong> info.dropke@gmail.com<br>
+                    </p>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
+                        <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
+                        <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
+                        <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-newsletter">
+                    <h4>Subscription</h4>
+                    <p style="text-transform: none;">Stay Informed, Stay Empowered: Subscribe to Our Newsletter!Join our community committed to diabetes remission and obesity prevention.</p>
+                    <p style="text-transform: none;">By subscribing to our newsletter, you'll receive regular updates on our latest programs, research findings, healthy living tips, and inspiring stories from individuals like you who are making positive changes in their lives.</p>
+                    <form action="" method="post">
+                        <input type="email" name="email"><input type="submit"  value="Subscribe">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
+                Copyright &copy; 2024 Diabetes Remission and Obesity Prevention – DROP organization Website. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
 </body>
 </html>

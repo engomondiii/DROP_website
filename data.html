@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to DROP Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        /* Additional CSS styles for profile section */
+        .profile-section {
+            display: none; /* Hide profile section by default */
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 300px;
+        }
+
+        .dashboard-container {
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .dashboard-sidebar {
+            background-color: #034183; /* Changed background color */
+            border-right: 1px solid #ddd;
+            min-height: 100vh;
+            position: fixed; /* Set position to fixed */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding-right: 10px; /* Added padding-right to compensate for scrollbar */
+        }
+
+        .dashboard-sidebar .navbar-brand {
+            font-weight: bold;
+            color: white; /* Changed text color */
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 999; /* Ensure it appears on top */
+        }
+
+        .dashboard-sidebar .nav-pills {
+            padding-top: 50px; /* Adjust top padding to accommodate the title */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 20px; /* Added margin-top to separate from the title */
+            margin-bottom: 0; /* Remove bottom margin */
+        }
+
+        .dashboard-sidebar .nav-pills > li > a {
+            color: white; /* Changed text color */
+        }
+
+        .dashboard-sidebar .nav-pills > li > a:hover,
+        .dashboard-sidebar .nav-pills > li > a:focus {
+            background-color: #ddd;
+        }
+
+        .dashboard-details {
+            padding: 20px;
+            background-color: #f3f3f3;
+            min-height: 100vh;
+            overflow-y: auto; /* Enable vertical scrolling */
+            position: sticky; /* Set position to sticky */
+            top: 0; /* Stick to the top */
+        }
+
+        .dashboard-details .container {
+            padding-left: 0; /* Remove left padding */
+            padding-right: 0; /* Remove right padding */
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+    // Add click event listener to dashboard details
+    $(".dashboard-sidebar .nav-pills li a").click(function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        var detailId = $(this).attr("href").substring(1); // Extract detail ID
+        var detailContent = getContentForDetail(detailId); // Function to get detail content
+        $("#main-content").html(detailContent);
+    });
+
+    // Add click event listener to profile link
+    $("#profile-link").click(function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        $.ajax({
+            type: 'GET',
+            url: '/profile',
+            success: function(data) {
+                $("#main-content").html(data); // Update main content with profile details
+            },
+            error: function(err) {
+                console.error('Error fetching profile details:', err);
+            }
+        });
+    });
+
+    // Function to get detail content (sample implementation)
+    function getContentForDetail(detailId) {
+        // Sample detail content
+        var content = "<h2>Detail: " + detailId + "</h2>";
+        content += "<p>Comming soon! Still Under development.</p>";
+        return content;
+    }
+});
+
+    </script>
+</head>
+<body>
+    <div class="container-fluid dashboard-container">
+        <div class="row">
+            <!-- Dashboard details -->
+            <div class="col-md-3">
+                <div class="dashboard-sidebar">
+                    <nav class="navbar" role="navigation">
+                        <a class="navbar-brand" href="#">DROP Dashboard</a>
+                        <ul class="nav nav-pills nav-stacked">
+                            <!-- Add an ID to the profile link for easy selection -->
+
+                            <li><a id="profile-link" href="#">Profile</a></li> <!-- Moved profile link to the bottom -->
+                             
+                            <li><a href="#health">Health Metrics Tracking</a></li>
+                            <li><a href="#nutrition">Nutrition and Meal Planning</a></li>
+                            <li><a href="#resources">Educational Resources</a></li>
+                            <li><a href="#community">Community Support</a></li>
+                            <li><a href="#appointments">Appointment Scheduling</a></li>
+                            <li><a href="#progress">Progress Reports and Insights</a></li>
+                            <li><a href="#goals">Goal Setting and Tracking</a></li>
+                            <li><a href="#research">Research and Clinical Trials</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main content on the right side -->
+            <div class="col-md-9">
+                <!-- Placeholder for main content based on dashboard selection -->
+                <div id="main-content" class="dashboard-details">
+                    <!-- Content dynamically loaded based on dashboard selection -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
